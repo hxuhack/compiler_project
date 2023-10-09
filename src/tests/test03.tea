@@ -1,0 +1,21 @@
+// test comment
+fn main(a:int, b:int)->int{
+    let a:int;
+    let b:int = 0;
+    let c:MyStruct;
+    c.node = 1;
+    c.len = 3; // comment1
+    ret foo(c.node, c.len);
+}
+
+struct MyStruct { // comment1
+    node:int,
+    len:int  /* comment 2 */
+}
+
+/* comment 2 */
+
+fn foo(a:int, b:int)->int{
+    /* comment 2 */
+    ret a+1+b+2;
+}
