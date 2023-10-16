@@ -236,15 +236,21 @@ void print_aA_AssignStmt(aA_assignStmt assignStmt, ostream& os){
 
 void print_aA_VarDeclScalar(aA_varDeclScalar varDeclScalar, ostream& os){
     if(!varDeclScalar) return;
-    os << *(varDeclScalar->id) << ":";
-    print_aA_Type(varDeclScalar->type, os);
+    os << *(varDeclScalar->id);
+    if(varDeclScalar->type){
+        os << ":";
+        print_aA_Type(varDeclScalar->type, os);
+    }
 }
 
 void print_aA_VarDeclArray(aA_varDeclArray varDeclArray, ostream& os){
     if(!varDeclArray) return;
     os << *(varDeclArray->id) << "[";
-    os << varDeclArray->len << "]:";
-    print_aA_Type(varDeclArray->type, os);
+    os << varDeclArray->len << "]";
+    if(varDeclArray->type){
+        os << ":";
+        print_aA_Type(varDeclArray->type, os);
+    }
 }
 
 void print_aA_VarDecl(aA_varDecl varDecl, ostream& os){
@@ -263,8 +269,11 @@ void print_aA_VarDecl(aA_varDecl varDecl, ostream& os){
 
 void print_aA_VarDefScalar(aA_varDefScalar varDefScalar, ostream& os){
     if(!varDefScalar) return;
-    os << *(varDefScalar->id) << ":";
-    print_aA_Type(varDefScalar->type, os);
+    os << *(varDefScalar->id);
+    if(varDefScalar->type){
+        os << ":";
+        print_aA_Type(varDefScalar->type, os);
+    }
     os << " = ";
     print_aA_RightVal(varDefScalar->val, os);
 }
@@ -273,7 +282,10 @@ void print_aA_VarDefArray(aA_varDefArray varDefArray, ostream& os){
     if(!varDefArray) return;
     os << *(varDefArray->id) << "[";
     os << varDefArray->len << "]:";
-    print_aA_Type(varDefArray->type, os);
+    if(varDefArray->type){
+        os << ":";
+        print_aA_Type(varDefArray->type, os);
+    }
     os << " = {";
     if(!varDefArray->vals.empty()){
         print_aA_RightVal(varDefArray->vals[0], os);
