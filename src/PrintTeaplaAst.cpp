@@ -281,7 +281,7 @@ void print_aA_VarDefScalar(aA_varDefScalar varDefScalar, ostream& os){
 void print_aA_VarDefArray(aA_varDefArray varDefArray, ostream& os){
     if(!varDefArray) return;
     os << *(varDefArray->id) << "[";
-    os << varDefArray->len << "]:";
+    os << varDefArray->len << "]";
     if(varDefArray->type){
         os << ":";
         print_aA_Type(varDefArray->type, os);
