@@ -1,0 +1,30 @@
+struct MyStruct { 
+    node:int,
+    len:int  
+}
+
+fn foo(a:int, b:int)->int{
+    ret a+1+b+2;
+}
+
+fn main(a:int, b:int)->int{
+    let c:MyStruct;
+    c.node = 3;
+    c.len = 20;
+    
+    if((c > b))
+    {
+        c.node = foo(a, b);
+    }
+    else
+    {
+        c.len = foo(b, b);
+    }
+}
+
+
+/*
+    key:
+    line 15, col 8: MyStruct is not comparable with int.
+*/
+

@@ -1,20 +1,26 @@
-fn main(a:int, b:int)->int{
-    let a:int;
-    let b:int = 0;
-    let c:MyStruct;
-    ;
-    c.node = 1;
-    c.len = 3;
-    ret foo(c.node, c.len);
-}
-
-;
-
 struct MyStruct { 
     node:int,
     len:int  
 }
 
+fn main(a:int, b:int)->int{
+    let a:int;
+    let b:int = 0;
+    let c:MyStruct;
+    c.node = 1;
+    c.len = 3;
+    ret a - b;
+}
+
+;
+
 fn foo(a:int, b:int)->int{
     ret a+1+b+2;
 }
+
+
+/*
+    key:
+    line 7, col 9: local variables dplicates with function params.
+*/
+

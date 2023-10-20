@@ -2,6 +2,7 @@
 #include "TeaplaAst.h"
 
 aA_type aA_Type(A_type type){
+    if(!type) return nullptr;
     aA_type p = new aA_type_;
     p->pos = type->pos;
     p->type = type->type;
