@@ -27,6 +27,7 @@ int main(int argc, char * argv[]) {
     line = 1;
     col = 1;
     
+    
     freopen(argv[1], "r", stdin);  
     ofstream ASTStream;
     ASTStream.open(argv[2]);
