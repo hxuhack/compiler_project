@@ -176,9 +176,7 @@ void print_aA_BoolUnit(aA_boolUnit boolUnit, ostream& os){
     if(!boolUnit) return;
     switch(boolUnit->kind){
     case A_comOpExprKind:{
-        os << "(";
         print_aA_ComExpr(boolUnit->u.comExpr, os);
-        os << ")";
         break;
     }
     case A_boolExprKind:{
