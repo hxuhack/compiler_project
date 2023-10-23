@@ -356,7 +356,7 @@ aA_fnDecl aA_FnDecl(A_fnDecl fnDecl){
     p->pos = fnDecl->pos;
     p->id = new string(fnDecl->id);
     p->paramDecl = aA_ParamDecl(fnDecl->paramDecl);
-    p->type = aA_type(fnDecl->type);
+    p->type = aA_Type(fnDecl->type);
     return p;
 }
 
