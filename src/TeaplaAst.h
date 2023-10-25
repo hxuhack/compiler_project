@@ -122,7 +122,7 @@ struct aA_boolBiOpExpr_ {
     A_pos pos;
     A_boolBiOp op;
     aA_boolExpr left;
-    aA_boolUnit right;
+    aA_boolExpr right;
 };
 
 struct aA_boolUOpExpr_ {

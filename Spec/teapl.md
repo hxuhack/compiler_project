@@ -34,7 +34,7 @@ arithUOp := < - >
 **Condition Expressions**
 
 ```
-boolExpr := boolExpr boolBiOp boolUnit | boolUnit
+boolExpr := boolExpr boolBiOp boolExpr | boolUnit
 boolUnit := exprUnit comOp exprUnit | < ( > boolExpr < ) > | boolUOp boolUnit // we restrict the operands of comparison operators to be exprUnit instead of rightVal to avoid confusing the precedence.
 boolBiOp := < && > | < || >
 boolUOp := < ! >

@@ -18,6 +18,7 @@ typedef struct A_boolUnit_* A_boolUnit;
 typedef struct A_boolBiOpExpr_* A_boolBiOpExpr;
 typedef struct A_boolUOpExpr_* A_boolUOpExpr;
 typedef struct A_comExpr_* A_comExpr;
+typedef struct A_rightVal_* A_rightVal;
 typedef struct A_leftVal_* A_leftVal;
 typedef struct A_assignStmt_* A_assignStmt;
 typedef struct A_rightValList_* A_rightValList;
@@ -25,6 +26,8 @@ typedef struct A_varDefScalar_* A_varDefScalar;
 typedef struct A_varDefArray_* A_varDefArray;
 typedef struct A_varDeclScalar_* A_varDeclScalar;
 typedef struct A_varDeclArray_* A_varDeclArray;
+typedef struct A_varDecl_* A_varDecl;
+typedef struct A_varDef_* A_varDef;
 typedef struct A_varDeclStmt_* A_varDeclStmt;
 typedef struct A_varDeclList_* A_varDeclList;
 typedef struct A_structDef_* A_structDef;
@@ -237,7 +240,7 @@ struct A_boolBiOpExpr_ {
     A_pos pos;
     A_boolBiOp op;
     A_boolExpr left;
-    A_boolUnit right;
+    A_boolExpr right;
 };
 
 // op cond (eg: !a)
@@ -506,7 +509,7 @@ A_arithBiOpExpr A_ArithBiOpExpr(A_pos pos, A_arithBiOp op, A_arithExpr left, A_a
 A_arithUExpr A_ArithUExpr(A_pos pos, A_arithUOp op, A_exprUnit expr);
 A_arithExpr A_ArithBiOp_Expr(A_pos pos, A_arithBiOpExpr arithBiOpExpr);
 A_arithExpr A_ExprUnit(A_pos pos, A_exprUnit exprUnit);
-A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolUnit right);
+A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolExpr right);
 A_boolUOpExpr A_BoolUOpExpr(A_pos pos, A_boolUOp op, A_boolUnit cond);
 A_boolExpr A_BoolBiOp_Expr(A_pos pos, A_boolBiOpExpr boolBiOpExpr);
 A_boolExpr A_BoolExpr(A_pos pos, A_boolUnit boolUnit);
