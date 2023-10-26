@@ -29,7 +29,6 @@ void check_IfStmt(std::ostream* out, aA_ifStmt is);
 void check_BoolExpr(std::ostream* out, aA_boolExpr be);
 void check_BoolUnit(std::ostream* out, aA_boolUnit bu);
 aA_type check_ExprUnit(std::ostream* out, aA_exprUnit eu);
-aA_type check_ArithExpr(std::ostream* out, aA_arithExpr ae);
 void check_FuncCall(std::ostream* out, aA_fnCall fc);
 void check_WhileStmt(std::ostream* out, aA_whileStmt ws);
 void check_CallStmt(std::ostream* out, aA_callStmt cs);

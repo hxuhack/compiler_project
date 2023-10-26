@@ -35,7 +35,7 @@ arithUOp := < - >
 
 ```
 boolExpr := boolExpr boolBiOp boolUnit | boolUnit
-boolUnit := < ( > exprUnit comOp exprUnit < ) > | < ( > boolExpr < ) > | boolUOp boolUnit // we restrict the operands of comparison operators to be exprUnit instead of rightVal to avoid confusing the precedence.
+boolUnit := exprUnit comOp exprUnit | < ( > boolExpr < ) > | boolUOp boolUnit // we restrict the operands of comparison operators to be exprUnit instead of rightVal to avoid confusing the precedence.
 boolBiOp := < && > | < || >
 boolUOp := < ! >
 comOp := < > > | < < > | < >= > | < <= > | < == > | < != >
@@ -76,10 +76,10 @@ let d[10]:int = {0}; // declear a variable of integer array and initialize it wi
 The grammar is defined as follows.
  ```
 varDeclStmt := < let > (varDecl | varDef) < ; >   
-varDecl := id < : > type |  id < [ > num < ] >< : > type
-varDef :=  id < : > type < = > rightVal  //primitive type
-         | id < [ > num < ] >< : > type < = > < { > rightVal (< , > rightVal)* | ϵ < } > //array
-type := nativeType | structType | ϵ
+varDecl := id < : > type |  id < [ > num < ] >< : > type | id |  id < [ > num < ] >
+varDef :=  id < : > type < = > rightVal | id < = > rightVal  //primitive type
+         | id < [ > num < ] >< : > type < = > < { > rightVal (< , > rightVal)* | ϵ < } > | id < [ > num < ] > < = > < { > rightVal (< , > rightVal)* | ϵ < } > //array
+type := nativeType | structType
 nativeType := < int >
 structType := id
  ```

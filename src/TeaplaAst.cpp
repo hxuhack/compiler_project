@@ -138,7 +138,7 @@ aA_boolBiOpExpr aA_BoolBiOpExpr(A_boolBiOpExpr boolBiOpExpr){
     p->pos = boolBiOpExpr->pos;
     p->op= boolBiOpExpr->op;
     p->left = aA_BoolExpr(boolBiOpExpr->left);
-    p->right = aA_BoolUnit(boolBiOpExpr->right);
+    p->right = aA_BoolExpr(boolBiOpExpr->right);
     return p;
 }
 
@@ -356,7 +356,7 @@ aA_fnDecl aA_FnDecl(A_fnDecl fnDecl){
     p->pos = fnDecl->pos;
     p->id = new string(fnDecl->id);
     p->paramDecl = aA_ParamDecl(fnDecl->paramDecl);
-    p->type = aA_type(fnDecl->type);
+    p->type = aA_Type(fnDecl->type);
     return p;
 }
 

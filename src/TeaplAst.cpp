@@ -174,7 +174,7 @@ A_arithExpr A_ExprUnit(A_pos pos, A_exprUnit exprUnit){
     return p;
 }
 
-A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolUnit right){
+A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolExpr right){
     A_boolBiOpExpr p = (A_boolBiOpExpr)malloc(sizeof(*p));
     p->pos = pos;
     p->op= op;
