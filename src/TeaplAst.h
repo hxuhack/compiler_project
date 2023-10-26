@@ -237,7 +237,7 @@ struct A_boolBiOpExpr_ {
     A_pos pos;
     A_boolBiOp op;
     A_boolExpr left;
-    A_boolUnit right;
+    A_boolExpr right;
 };
 
 // op cond (eg: !a)

@@ -173,7 +173,7 @@ void print_aA_BoolBiOpExpr(aA_boolBiOpExpr boolBiOpExpr, ostream& os){
     print_tab(os, "A_boolBiOpExpr");
     print_aA_BoolExpr(boolBiOpExpr->left, os);
     os << boolBiOps[boolBiOpExpr->op];
-    print_aA_BoolUnit(boolBiOpExpr->right, os);
+    print_aA_BoolExpr(boolBiOpExpr->right, os);
     tab--;
 }
 

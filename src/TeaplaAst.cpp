@@ -138,7 +138,7 @@ aA_boolBiOpExpr aA_BoolBiOpExpr(A_boolBiOpExpr boolBiOpExpr){
     p->pos = boolBiOpExpr->pos;
     p->op= boolBiOpExpr->op;
     p->left = aA_BoolExpr(boolBiOpExpr->left);
-    p->right = aA_BoolUnit(boolBiOpExpr->right);
+    p->right = aA_BoolExpr(boolBiOpExpr->right);
     return p;
 }
 
