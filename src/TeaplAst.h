@@ -98,14 +98,14 @@ struct A_indexExpr_ {
 // arr[idx]
 struct A_arrayExpr_ {
     A_pos pos;
-    char* arr;
+    A_leftVal arr;
     A_indexExpr idx;
 };
 
 // structId.memberId
 struct A_memberExpr_ {
     A_pos pos;
-    char* structId;
+    A_leftVal structId;
     char* memberId;
 };
 
@@ -240,7 +240,7 @@ struct A_boolBiOpExpr_ {
     A_pos pos;
     A_boolBiOp op;
     A_boolExpr left;
-    A_boolUnit right;
+    A_boolExpr right;
 };
 
 // op cond (eg: !a)
@@ -496,8 +496,8 @@ A_rightValList A_RightValList(A_rightVal head, A_rightValList tail);
 A_fnCall A_FnCall(A_pos pos, char* fn, A_rightValList vals);
 A_indexExpr A_NumIndexExpr(A_pos pos, int num);
 A_indexExpr A_IdIndexExpr(A_pos pos, char* id);
-A_arrayExpr A_ArrayExpr(A_pos pos, char* arr, A_indexExpr idx);
-A_memberExpr A_MemberExpr(A_pos pos, char* structId, char* memberId);
+A_arrayExpr A_ArrayExpr(A_pos pos, A_leftVal arr, A_indexExpr idx);
+A_memberExpr A_MemberExpr(A_pos pos, A_leftVal structId, char* memberId);
 A_exprUnit A_NumExprUnit(A_pos pos, int num);
 A_exprUnit A_IdExprUnit(A_pos pos, char* id);
 A_exprUnit A_ArithExprUnit(A_pos pos, A_arithExpr arithExpr);
@@ -509,7 +509,7 @@ A_arithBiOpExpr A_ArithBiOpExpr(A_pos pos, A_arithBiOp op, A_arithExpr left, A_a
 A_arithUExpr A_ArithUExpr(A_pos pos, A_arithUOp op, A_exprUnit expr);
 A_arithExpr A_ArithBiOp_Expr(A_pos pos, A_arithBiOpExpr arithBiOpExpr);
 A_arithExpr A_ExprUnit(A_pos pos, A_exprUnit exprUnit);
-A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolUnit right);
+A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolExpr right);
 A_boolUOpExpr A_BoolUOpExpr(A_pos pos, A_boolUOp op, A_boolUnit cond);
 A_boolExpr A_BoolBiOp_Expr(A_pos pos, A_boolBiOpExpr boolBiOpExpr);
 A_boolExpr A_BoolExpr(A_pos pos, A_boolUnit boolUnit);

@@ -69,7 +69,7 @@ A_indexExpr A_IdIndexExpr(A_pos pos, char* id){
     return p;
 }
 
-A_arrayExpr A_ArrayExpr(A_pos pos, char* arr, A_indexExpr idx){
+A_arrayExpr A_ArrayExpr(A_pos pos, A_leftVal arr, A_indexExpr idx){
     A_arrayExpr p = (A_arrayExpr)malloc(sizeof(*p));
     p->pos = pos;
     p->arr= arr;
@@ -77,7 +77,7 @@ A_arrayExpr A_ArrayExpr(A_pos pos, char* arr, A_indexExpr idx){
     return p;
 }
 
-A_memberExpr A_MemberExpr(A_pos pos, char* structId, char* memberId){
+A_memberExpr A_MemberExpr(A_pos pos, A_leftVal structId, char* memberId){
     A_memberExpr p = (A_memberExpr)malloc(sizeof(*p));
     p->pos = pos;
     p->structId= structId;
@@ -174,7 +174,7 @@ A_arithExpr A_ExprUnit(A_pos pos, A_exprUnit exprUnit){
     return p;
 }
 
-A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolUnit right){
+A_boolBiOpExpr A_BoolBiOpExpr(A_pos pos, A_boolBiOp op, A_boolExpr left, A_boolExpr right){
     A_boolBiOpExpr p = (A_boolBiOpExpr)malloc(sizeof(*p));
     p->pos = pos;
     p->op= op;

@@ -1,20 +1,34 @@
-fn main(a:int, b:int)->int{
-    let a:int;
-    let b:int = 0;
-    let c:MyStruct;
-    ;
-    c.node = 1;
-    c.len = 3;
-    ret foo(c.node, c.len);
+struct Node {
+    l:int,
+    r:int
 }
 
-;
-
-struct MyStruct { 
-    node:int,
-    len:int  
+fn foo(c:Node) {
+    c.l = getint();
+    c.r = getint();
+    ret;
 }
 
-fn foo(a:int, b:int)->int{
-    ret a+1+b+2;
+fn baz(c[10]:Node) {
+    c[2].l = getint();
+    c[2].r = getint();
+    ret;
+}
+
+let d:Node;
+let e[10]:Node;
+
+fn main()->int{
+    _sysy_starttime(22);
+    let c:Node;
+    c.l = 1;
+    c.r = 2;
+    foo(c);
+    foo(d);
+    baz(e);
+    putint(c.l+c.r);
+    putint(d.l+d.r);
+    putint(e[2].l+e[2].r);
+    _sysy_stoptime(32);
+    ret 0;
 }

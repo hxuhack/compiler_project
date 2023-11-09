@@ -1,0 +1,32 @@
+struct Node {
+    l:int,
+    r:int
+}
+
+struct Bar {
+    node:Node,
+    nodes[10]:Node,
+    arr[10]:int
+}
+
+fn foo(c[10]:Bar) {
+    c[1].arr[3] = 5;
+    ret;
+}
+
+fn main()->int{
+    _sysy_starttime(18);
+    let c[10]:Bar;
+    c[0].node.l = 1;
+    c[0].node.r = 2;
+    c[0].nodes[2].l = 3;
+    c[0].nodes[2].r = 4;
+    foo(c);
+    putint(c[0].node.l);
+    putint(c[0].node.r);
+    putint(c[0].nodes[2].l);
+    putint(c[0].nodes[2].r);
+    putint(c[1].arr[3]);
+    _sysy_stoptime(30);
+    ret 0;
+}
