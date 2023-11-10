@@ -350,3 +350,24 @@ L_gep对应的是llvm ir中的getelementptr，当base_ptr为int数组时，对�
 ```
 
 更多的llvm ir介绍可以参考[LLVM Language Reference Manual — LLVM 18.0.0git documentation](https://llvm.org/docs/LangRef.html).
+
+### 测试考察功能点
+
+测试考察的是是否正确翻译了llvm ir。本质上除了结构体外我们的语言功能上就是c的子集，所以我们考察的内容大体上是
+
+1. 基本的四则运算
+2. if，while的翻译
+3. break,continue语句的翻译
+4. bool表达式的短路
+5. bool表达式到int类型的转换
+6. 函数调用的翻译
+7. 数组下标的翻译
+8. 结构体子元素的翻译
+9. 结构体和数组传参的翻译
+10. 全局变量
+11. 变量定义的翻译
+12. 编译期计算（已实现）
+13. 函数的递归调用（在arm汇编考察）
+14. 库函数的调用
+
+已经给出的7个测试覆盖了大部分的功能，过了这些测试就会有将近65%的分数，剩下的测试是是一些常用的程序在teapl上的实现(如DFS，BFS，union-find，brainfuck，矩阵乘法等)以及一些benchmark程序的teapl实现。通过剩下的这些测试即可获得剩余的分数。
