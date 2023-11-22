@@ -2,7 +2,7 @@
 #define __TEMP
 
 #include <string>
-
+#include <unordered_set>
 enum class TempType
 {
     INT_TEMP,
@@ -25,6 +25,17 @@ Temp_temp* Temp_newtemp_int();
 Temp_temp* Temp_newtemp_int_ptr(int len);
 Temp_temp* Temp_newtemp_struct(const std::string& name);
 Temp_temp* Temp_newtemp_struct_ptr(int len, const std::string& name);
+
+typedef std::unordered_set<Temp_temp*> TempSet_;
+typedef TempSet_* TempSet;
+
+void TempSet_add(TempSet tl, Temp_temp* t);
+bool TempSet_contains(TempSet tl, Temp_temp* t);
+TempSet TempSet_union(TempSet tl1, TempSet tl2);
+TempSet TempSet_diff(TempSet tl1, TempSet tl2);
+bool TempSet_eq(TempSet tl1, TempSet tl2);
+void TempSet_remove(TempSet tl, Temp_temp* t);
+
 
 struct TempDef
 {
@@ -70,6 +81,10 @@ struct AS_operand
         Name_name *NAME;
         int ICONST;
     } u;
+
+    bool operator == (const AS_operand &a) const{
+        return kind==a.kind && u.TEMP==a.u.TEMP;
+    }
 };
 
 AS_operand* AS_Operand_Temp(Temp_temp *temp);
