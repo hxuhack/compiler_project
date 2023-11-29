@@ -1,0 +1,94 @@
+let INF:int = 65535;
+struct array2D {
+    a[16]:int
+}
+let e[16]:array2D;
+let book[16]:int;
+let dis[16]:int;
+let n:int;
+let m:int;
+let v1:int;
+let v2:int;
+let w:int;
+
+fn Dijkstra()
+{
+    let i:int;
+    i = 1;
+    while (i <= n) {
+        dis[i] = e[1].a[i];
+        book[i] = 0;
+        i = i + 1;
+    }
+    book[1] = 1;
+
+    i = 1;
+    while (i <= (n - 1)) {
+        let min_num:int = INF;
+        let min_index:int = 0;
+        let k:int = 1;
+        while (k <= n) {
+            if (min_num > dis[k] && book[k] == 0) {
+                min_num = dis[k];
+                min_index = k;
+            }
+            k = k + 1;
+        }
+        book[min_index] = 1;
+        let j:int = 1;
+        while (j <= n) {
+            if (e[min_index].a[j] < INF) {
+                if (dis[j] > (dis[min_index] + e[min_index].a[j])) {
+                    dis[j] = dis[min_index] + e[min_index].a[j];
+                }
+            }
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+}
+
+fn main()->int
+{   
+    _sysy_starttime(53);
+    let i:int;
+    n = getint();
+    m = getint();
+
+    i = 1;
+    while (i <= n) {
+        let j:int = 1;
+        while (j <= n) {
+            if (i == j)
+            {
+                e[i].a[j] = 0;
+            }
+            else
+            {
+                e[i].a[j] = INF;
+            }
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+
+    i = 1;
+    while (i <= m) {
+        let u:int = getint();
+        let v:int = getint();
+        e[u].a[v] = getint();
+        i = i + 1;
+    }
+
+    Dijkstra();
+
+    i = 1;
+    while (i <= n) {
+        putint(dis[i]);
+        putch(32);
+        i = i + 1;
+    }
+    putch(10);
+    _sysy_stoptime(91);
+    ret 0;
+}

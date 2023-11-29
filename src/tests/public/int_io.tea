@@ -1,0 +1,60 @@
+let ascii_0:int = 48;
+
+fn my_getint()->int
+{
+    let sum:int = 0;
+    let c:int;
+    while (1>0) {
+        c = getch() - ascii_0;
+        if (c < 0 || c > 9) {
+            continue;
+        } else {
+            break;
+        }
+    }
+    sum = c;
+
+    while (1>0) {
+        c = getch() - ascii_0;
+        if (c >= 0 && c <= 9) {
+            sum = sum * 10 + c;
+        } else {
+            break;
+        }
+    }
+
+    ret sum;
+}
+
+fn mod(x:int,y:int)->int
+{
+    ret x-(x/y)*y;
+}
+
+fn my_putint(a:int)
+{
+    let b[16]:int;
+    let i:int = 0;
+    while (a > 0) {
+        b[i] = mod(a,10) + ascii_0;
+        a = a / 10;
+        i = i + 1;
+    }
+    while (i > 0) {
+        i = i - 1;
+        putch(b[i]);
+    }
+}
+
+fn main()->int
+{   
+    _sysy_starttime(51);
+    let n:int = my_getint();
+    while (n > 0) {
+        let m:int = my_getint();
+        my_putint(m); putch(10);
+        n = n - 1;
+    }
+    _sysy_stoptime(58);
+    ret 0;
+}

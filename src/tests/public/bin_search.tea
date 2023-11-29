@@ -1,0 +1,51 @@
+fn main()->int
+{   
+    _sysy_starttime(3);
+    let i:int;
+    let sum:int;
+    let a[10]:int;
+    sum=0;
+    i=0;
+    while(i<10)
+    {
+        a[i]=i+1;
+        i=i+1;
+    }
+    let x:int;
+    let high:int;
+    let low:int;
+    let mid:int;
+    let n:int;
+    n=10;
+    x=getint();
+    high=n-1;
+    low=0;
+    mid=(high+low)/2;
+    while(a[mid]!=x && low < high)
+    {
+        mid=(high+low)/2;
+        if(x<a[mid])
+        {
+           high=mid-1; 
+        }
+        else
+        {
+            low = mid +1;
+        }    
+    }
+
+    if(x==a[mid])
+    {
+        putint(x);
+    }
+    else
+    {
+        x = 0;
+        putint(x);
+    }
+    
+    x = 10;
+    putch(x);
+    _sysy_stoptime(49);
+    ret 0;
+}

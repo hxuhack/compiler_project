@@ -1,0 +1,216 @@
+let TOKEN_NUM:int = 0;
+let TOKEN_OTHER:int = 1;
+let last_char:int = 32;
+let num:int;
+let other:int;
+let cur_token:int;
+
+fn next_char()->int
+{
+    last_char = getch();
+    ret last_char;
+}
+
+fn is_space(c:int)->int
+{
+    if (c == 32 || c == 10)
+    {
+        ret 1;
+    }
+    else
+    {
+        ret 0;
+    }
+}
+
+fn is_num(c:int)->int
+{
+    if (c >= 48 && c <= 57)
+    {
+        ret 1;
+    }
+    else
+    {
+        ret 0;
+    }
+}
+
+fn next_token()->int
+{
+    while (is_space(last_char)!=0)
+    {
+        next_char();
+    }
+    if (is_num(last_char)!=0)
+    {
+        num = last_char - 48;
+        while (is_num(next_char())!=0)
+        {
+            num = num * 10 + last_char - 48;
+        }
+        cur_token = TOKEN_NUM;
+    }
+    else
+    {
+        other = last_char;
+        next_char();
+        cur_token = TOKEN_OTHER;
+    }
+    ret cur_token;
+}
+
+fn panic()->int
+{
+    putch(112);
+    putch(97);
+    putch(110);
+    putch(105);
+    putch(99);
+    putch(33);
+    putch(10);
+    ret -1;
+}
+
+fn get_op_prec(op:int)->int
+{
+    // +, -
+    if (op == 43 || op == 45)
+        {ret 10;}
+    // *, /, %
+    if (op == 42 || op == 47 || op == 37)
+        {ret 20;}
+    // other
+    ret 0;
+}
+
+fn stack_push(s[256]:int, v:int)
+{
+    s[0] = s[0] + 1;
+    let temp:int = s[0];
+    s[temp] = v;
+}
+
+fn stack_pop(s[256]:int)->int
+{
+    let temp:int = s[0];
+    let last:int = s[temp];
+    s[0] = s[0] - 1;
+    ret last;
+}
+
+fn stack_peek(s[256]:int)->int
+{
+    let temp:int = s[0];
+    ret s[temp];
+}
+
+fn stack_size(s[256]:int)->int
+{
+    ret s[0];
+}
+
+fn mod(x:int,y:int)->int
+{
+    ret x-(x/y)*y;
+}
+
+fn eval_op(op:int, lhs:int, rhs:int)->int
+{
+    // +
+    if (op == 43)
+    {
+        ret lhs + rhs;
+    }
+    // -
+    if (op == 45)
+    {
+        ret lhs - rhs;
+    }
+    // *
+    if (op == 42)
+    {
+        ret lhs * rhs;
+    }
+    // /
+    if (op == 47)
+    {
+        ret lhs / rhs;
+    }
+    // %
+    if (op == 37)
+    {
+        ret mod(lhs,rhs);
+    }
+    // other
+    ret 0;
+}
+
+fn eval()->int
+{
+    let oprs[256]:int;
+    let ops[256]:int;
+    let i:int = 0;
+    while(i < 256)
+    {
+        oprs[i] = 0;
+        ops[i] = 0;
+        i = i + 1;
+    }
+    // get the first value
+    if (cur_token != TOKEN_NUM)
+    {
+        ret panic();
+    }
+    stack_push(oprs, num);
+    next_token();
+    // evaluate
+    while (cur_token == TOKEN_OTHER)
+    {
+        // get operator
+        let op:int = other;
+        if (get_op_prec(op) == 0)
+        {    break;}
+        next_token();
+        // handle operator
+        while (stack_size(ops)!=0 && get_op_prec(stack_peek(ops)) >= get_op_prec(op))
+        {
+            // evaluate the current operation
+            let cur_op:int = stack_pop(ops);
+            let rhs:int = stack_pop(oprs);
+            let lhs:int = stack_pop(oprs);
+            stack_push(oprs, eval_op(cur_op, lhs, rhs));
+        }
+        stack_push(ops, op);
+        // get next expression
+        if (cur_token != TOKEN_NUM)
+        {    ret panic();}
+        stack_push(oprs, num);
+        next_token();
+    }
+    // eat ';'
+    next_token();
+    // clear the operator stack
+    while (stack_size(ops)!=0)
+    {
+        let cur_op:int = stack_pop(ops);
+        let rhs:int = stack_pop(oprs);
+        let lhs:int = stack_pop(oprs);
+        stack_push(oprs, eval_op(cur_op, lhs, rhs));
+    }
+    ret stack_peek(oprs);
+}
+
+fn main()->int
+{   
+    _sysy_starttime(205);
+    let count:int = getint();
+    getch();
+    next_token();
+    while (count!=0) {
+        putint(eval());
+        putch(10);
+        count = count - 1;
+    }
+    _sysy_stoptime(214);
+    ret 0;
+}

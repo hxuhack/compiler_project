@@ -1,0 +1,50 @@
+fn mod(x:int,y:int)->int
+{
+    ret x-(x/y)*y;
+}
+
+fn palindrome(n:int)->int
+{
+    let a[4]:int;
+    let j:int;
+    let flag:int;
+    j=0;
+    while(j<4)
+    {
+        a[j]=mod(n,10);
+        n=n/10;
+        j=j+1;
+    }
+
+    if(a[0]==a[3] && a[1]==a[2])
+	{
+		flag=1;
+	}else{
+		flag=0;
+	}
+	ret flag;
+}
+
+fn main()->int
+{   
+    _sysy_starttime(30);
+    let test:int;
+    test=1221;
+    let flag:int;
+    flag=palindrome(test);
+    if(flag==1)
+    {
+        putint(test);
+    }
+    else
+    {
+        flag = 0;
+        putint(flag);
+    }
+
+    flag = 10;
+    putch(flag);
+    _sysy_stoptime(47);
+    ret 0;
+    
+}

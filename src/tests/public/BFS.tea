@@ -1,0 +1,119 @@
+fn quickread()->int{
+	let ch:int = getch();
+	let x:int = 0;
+	let f:int = 0;
+	while ((ch < 48) || (ch > 57)){
+		if((ch == 45)){
+			f = 1;
+		} 
+		ch = getch();
+	}
+	while ((ch >= 48) && (ch <=57)){
+		x = x * 10 + ch - 48;
+		ch = getch();
+	}
+	if ((f != 0)){
+		ret -x;
+	}else{
+		ret x;
+	}
+}
+
+let n:int;
+let m:int;
+let to[5005]:int;
+let next[5005]:int;
+let head[1005]:int;
+let cnt:int = 0;
+let que[1005]:int;
+let h:int;
+let tail:int;
+let inq[1005]:int;
+
+fn addedge(from:int, To:int){
+	to[cnt] = To;
+	next[cnt] = head[from];
+	head[from] = cnt;
+	cnt = cnt + 1;
+	to[cnt] = from;
+	next[cnt] = head[To];
+	head[To] = cnt;
+	cnt = cnt + 1;
+}
+
+fn init(){
+	let i:int = 0;
+	while ((i < 1005)){
+		head[i] = -1;
+		i = i + 1;
+	}
+}
+
+fn inqueue(x:int){
+	inq[x] = 1;
+	tail = tail + 1;
+	que[tail] = x;
+}
+
+fn popqueue()->int{
+	h = h + 1;
+	let res:int = que[h];
+	ret que[h];
+}
+
+fn same(s:int, t:int)->int{
+	h = 0;
+	tail = 0;
+	inqueue(s);
+	let res:int = 0;
+	let x:int = 0;
+	let i:int = 0;
+	let temp:int = 0;
+	while ((h < tail)){
+		x = popqueue();
+		if ((x == t)){
+			res = 1;
+		}
+		i = head[x];
+		while ((i != -1)){
+			temp = to[i];
+			if ((inq[temp] == 0)){
+				inqueue(to[i]);
+			}
+			i = next[i];
+		}
+	}
+	i = 0;
+	while ((i <= tail)){
+		temp = que[i];
+		inq[temp] = 0;
+		i = i + 1;
+	}
+	ret res;
+}
+
+fn main()->int{
+	n = quickread(); m = quickread();
+	_sysy_starttime(97);
+	init();
+	let ch:int = 0;
+	let x:int = 0;
+	let y:int = 0;
+	while ((m != 0)){
+		ch = getch();
+		while ((ch != 81) && (ch != 85)){
+			ch = getch();
+		}
+		if ((ch == 81)){ // query
+			x = quickread(); y = quickread();
+			putint(same(x, y));
+			putch(10);
+		}else{ // union
+			x = quickread(); y = quickread();
+			addedge(x, y);
+		}
+		m = m - 1;
+	}
+	_sysy_stoptime(117);
+	ret 0;
+}
