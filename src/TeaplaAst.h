@@ -73,13 +73,13 @@ struct aA_indexExpr_ {
 
 struct aA_arrayExpr_ {
     A_pos pos;
-    string* arr;
+    aA_leftVal arr;
     aA_indexExpr idx;
 };
 
 struct aA_memberExpr_ {
     A_pos pos;
-    string* structId;
+    aA_leftVal structId;
     string* memberId;
 };
 
@@ -122,7 +122,7 @@ struct aA_boolBiOpExpr_ {
     A_pos pos;
     A_boolBiOp op;
     aA_boolExpr left;
-    aA_boolUnit right;
+    aA_boolExpr right;
 };
 
 struct aA_boolUOpExpr_ {
