@@ -1,0 +1,100 @@
+fn func1(x:int, y:int, z:int)->int {
+  if (z == 0) {
+    ret x * y;
+  }
+  else {
+    ret func1(x, y - z, 0);
+  }
+}
+
+fn func2(x:int, y:int)->int {
+  if (y!=0) {
+    ret func2(x-(x/y)*y, 0);
+  }
+  else {
+    ret x;
+  }
+}
+
+fn func3(x:int, y:int) ->int{
+  if (y == 0) {
+    ret x + 1;
+  }
+  else {
+    ret func3(x + y, 0);
+  }
+}
+
+fn func4(x:int, y:int, z:int)->int {
+  if (x!=0) {
+    ret y;
+  }
+  else {
+    ret z;
+  }
+}
+
+fn func5(x:int)->int {
+  ret -x;
+}
+
+fn func6(x:int, y:int)->int {
+  if ((x!=0) && (y!=0)) {
+    ret 1;
+  }
+  else {
+    ret 0;
+  }
+}
+
+fn func7(x:int)->int {
+  if (!(x!=0)) {
+    ret 1;
+  }
+  else {
+    ret 0;
+  }
+}
+
+fn main()->int {
+  _sysy_starttime(97);
+  let i1:int = getint();
+  let i2:int = getint();
+  let i3:int = getint();
+  let i4:int = getint();
+  let arr[10]:int;
+  let i:int = 0;
+  while (i < 10) {
+    arr[i] = getint();
+    i = i + 1;
+  }
+  let a:int = func1(
+      // this
+      func2(
+          // is
+          func1(
+              // comment
+              func3(func4(func5(func3(func2(func6(func7(i1), func5(i2)), i3),
+                                      // this
+                                      i4)),
+                          // is
+                          arr[0],
+                          // function
+                          func1(func2(func3(func4(func5(arr[1]),
+                                                  // call
+                                                  func6(arr[2], func7(arr[3])),
+                                                  func2(arr[4], func7(arr[5]))),
+                                            arr[6]),
+                                      arr[7]),
+                                func3(arr[8], func7(arr[9])), i1)),
+                    func2(i2, func3(func7(i3), i4))),
+              arr[0], arr[1]),
+          arr[2]),
+      arr[3],
+      func3(func2(func1(func2(func3(arr[4], func5(arr[5])), func5(arr[6])),
+                        arr[7], func7(arr[8])),
+                  func5(arr[9])),
+            i1));
+  _sysy_stoptime(117);
+  ret a;
+}

@@ -1,0 +1,167 @@
+
+struct my_struct_1{
+  array[7]:int
+}
+struct my_struct_2{
+  array[8]:my_struct_1
+}
+struct my_struct_3{
+  array[5]:my_struct_2
+}
+struct my_struct_4{
+  array[4]:my_struct_3
+}
+struct my_struct_5{
+  array[3]:my_struct_4
+}
+struct my_struct_6{
+  array[2]:my_struct_5
+}
+
+
+let arr1[10]:my_struct_6;
+let arr2[10]:my_struct_6;
+
+fn loop1(x:int, y:int)->int {
+  let  a:int;
+  let  b:int;
+  let  c:int;
+  let  d:int;
+  let  e:int;
+  let  f:int;
+  let  g:int;
+  a = 0;
+  while (a < x && a < y) {
+    b = 0;
+    while (b < 2) {
+      c = 0;
+      while (c < 3) {
+        d = 0;
+        while (d < 4) {
+          e = 0;
+          while (e < 5) {
+            f = 0;
+            while (f < 6) {
+              g = 0;
+              while (g < 2) {
+                arr1[a].array[b].array[c].array[d].array[e].array[f].array[g]= a + b + c + d + e + f + g + x + y;
+                g = g + 1;
+              }
+              f = f + 1;
+            }
+            e = e + 1;
+          }
+          d = d + 1;
+        }
+        c = c + 1;
+      }
+      b = b + 1;
+    }
+    a = a + 1;
+  }
+}
+
+fn loop2()->int {
+  let  a:int;
+  let  b:int;
+  let  c:int;
+  let  d:int;
+  let  e:int;
+  let  f:int;
+  let  g:int;
+  a = 0;
+  while (a < 10) {
+    b = 0;
+    while (b < 2) {
+      c = 0;
+      while (c < 3) {
+        d = 0;
+        while (d < 2) {
+          e = 0;
+          while (e < 4) {
+            f = 0;
+            while (f < 8) {
+              g = 0;
+              while (g < 7) {
+                arr2[a].array[b].array[c].array[d].array[e].array[f].array[g] = a + b + d + g;
+                g = g + 1;
+              }
+              f = f + 1;
+            }
+            e = e + 1;
+          }
+          d = d + 1;
+        }
+        c = c + 1;
+      }
+      b = b + 1;
+    }
+    a = a + 1;
+  }
+}
+
+fn loop3( h:int,  i:int,  j:int,  k:int, l:int,  m:int,  n:int)->int {
+  let  a:int;
+  let  b:int;
+  let  c:int;
+  let  d:int;
+  let  e:int;
+  let  f:int;
+  let  g:int;
+  let  ans:int = 0;
+  a = 0;
+  while (a < 10) {
+    b = 0;
+    while (b < 100) {
+      c = 0;
+      while (c < 1000) {
+        d = 0;
+        while (d < 10000) {
+          e = 0;
+          while (e < 100000) {
+            f = 0;
+            while (f < 1000000) {
+              g = 0;
+              while (g < 10000000) {
+                ans = ans-(ans/ 817)*817 + arr1[a].array[b].array[c].array[d].array[e].array[f].array[g] + arr2[a].array[b].array[c].array[d].array[e].array[f].array[g];
+                g = g + 1;
+                if (g >= n) {break;}
+              }
+              f = f + 1;
+              if (f >= m) {break;}
+            }
+            e = e + 1;
+            if (e >= l) {break;}
+          }
+          d = d + 1;
+          if (d >= k) {break;}
+        }
+        c = c + 1;
+        if (c >= j) {break;}
+      }
+      b = b + 1;
+      if (b >= i) {break;}
+    }
+    a = a + 1;
+    if (a >= h) {break;}
+  }
+  ret ans;
+}
+
+fn main()->int {
+  _sysy_starttime(97);
+  let x:int = getint();
+  let y:int = getint();
+  let h:int = getint();
+  let i:int = getint();
+  let j:int = getint();
+  let k:int = getint();
+  let l:int = getint();
+  let m:int = getint();
+  let n:int = getint();
+  loop1(x, y);
+  loop2();
+  n=loop3(h, i, j, k, l, m, n);
+  _sysy_stoptime(117);
+  ret n;
+}

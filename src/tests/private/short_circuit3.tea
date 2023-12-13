@@ -1,0 +1,46 @@
+let a:int;
+let b:int;
+let d:int;
+
+fn set_a( val:int)->int { a = val; ret a; }
+fn set_b(val:int)->int{ b = val; ret b; }
+fn set_d(val:int)->int { d = val; ret d; }
+
+fn main()->int
+{   
+    _sysy_starttime(97);
+    a = 2; b = 3;
+    if ((set_a(0)!=0) && (set_b(1)!=0)) {;}
+    putint(a); putch(32);
+    putint(b); putch(32);
+
+    a = 2; b = 3;
+    if ((set_a(0)!=0) && (set_b(1)!=0)){;} 
+    putint(a); putch(32);
+    putint(b); putch(10);
+
+     let c:int = 1;
+    d = 2;
+    if ((c >= 1) && (set_d(3)!=0)) {;}
+    putint(d); putch(32);
+    if ((c <= 1) || (set_d(4)!=0)) {;}
+    putint(d); putch(10);
+
+ 
+    putch(10);
+
+    let i0:int = 0;
+    let i1:int = 1;
+    let i2:int = 2;
+    let i3:int = 3;
+    let i4:int = 4;
+    while ((i0!=0) && (i1!=0)) {putch(32);}
+    if ((i0!=0) || (i1!=0)) {putch(67);}
+    if ((i0 >= i1) || (i1 <= i0)) {putch(72);}
+    if ((i2 >= i1) && (i4 != i3)) { putch(73); }
+    if ((!(i1!=0)) && (i3 < i3) || (i4 >= i4)) { putch(74); }
+    if ((!(i1!=0)) || (i3 < i3) && (i4 >= i4)) {putch(75);}
+    putch(10);
+    _sysy_stoptime(117);
+    ret 0;
+}

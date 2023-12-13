@@ -1,0 +1,82 @@
+/*
+a brainfuck interpreter
+reference: https://gist.github.com/maxcountryman/1699708
+*/
+
+// tape, input buffer, and read/write pointer
+let TAPE_LEN:int = 65536;
+let BUFFER_LEN:int = 32768;
+let tape[65536]:int;
+let program[32768]:int;
+let ptr:int = 0;
+
+// read the input program
+fn read_program() {
+  let i:int = 0;
+  let len:int = getint();
+  while (i < len) {
+    program[i] = getch();
+    i = i + 1;
+  }
+  program[i] = 0;
+}
+
+// interpret the input program
+fn interpret(input[65536]:int) {
+  let cur_char:int;
+  let loop:int;
+  let i:int = 0;
+  while (input[i]!=0) {
+    cur_char = input[i];
+    if (cur_char == 62) {
+      // '>'
+      ptr = ptr + 1;
+    }
+    if (cur_char == 60) {
+      // '<'
+      ptr = ptr - 1;
+    }
+    if (cur_char == 43) {
+      // '+'
+      tape[ptr] = tape[ptr] + 1;
+    }
+    if (cur_char == 45) {
+      // '-'
+      tape[ptr] = tape[ptr] - 1;
+    }
+    if (cur_char == 46) {
+      // '.'
+      putch(tape[ptr]);
+    }
+    if (cur_char == 44) {
+      // ','
+      tape[ptr] = getch();
+    }
+    if (cur_char == 93 && tape[ptr]!=0) {
+      // ']'
+      loop = 1;
+      while (loop > 0) {
+        i = i - 1;
+        cur_char = input[i];
+        if (cur_char == 91) {
+          // '['
+          loop = loop - 1;
+        }
+        if (cur_char == 93) {
+          // ']'
+          loop = loop + 1;
+        }
+      }
+    }
+    i = i + 1;
+  }
+}
+
+fn main()->int {
+  _sysy_starttime(76);
+  read_program();
+  interpret(program);
+  putch(10);
+  _sysy_stoptime(80);
+  ret 0;
+}

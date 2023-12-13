@@ -1,0 +1,314 @@
+// Really long code;
+let n:int;
+
+fn bubblesort(arr[0]:int)->int {
+    let i:int;
+    let j:int;
+    i =0; 
+    while(i < (n-1)){
+    // Last i elements are already in place    
+        j = 0;
+        while(j < (n-i-1)){
+            let tmp_i:int=j+1;
+            if (arr[j] > arr[tmp_i]) {
+                // swap(&arr[j], &arr[j+1]); 
+                let tmp:int;
+                let tmp2:int=j+1;
+                tmp = arr[tmp2];
+                arr[tmp2] = arr[j];
+                arr[j] = tmp;       
+            }
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    ret 0;
+}
+
+fn insertsort(a[0]:int)-> int{
+    let i:int;
+    i = 1;
+    while(i<n)     
+    {
+        let temp:int;
+        temp=a[i]; 
+        let j:int;
+        j=i-1;
+        while(j>-1&&temp<a[j])
+        {   
+            let tmp:int=j+1;
+            a[tmp]=a[j];  
+            j = j - 1;
+        }
+        let tmp:int=j+1;
+        a[tmp]=temp; 
+        i = i + 1;
+    }
+    ret 0;
+}
+
+fn QuickSort(arr[0]:int, low:int,  high:int)->int
+{
+    if (low < high)
+    {
+        let i:int;
+        i = low;
+        let j:int;
+        j = high;
+        let k:int;
+        k = arr[low];
+        while (i < j)
+        {
+            while(i < j && arr[j] > (k - 1))
+            {
+                j = j - 1;
+            }
+ 
+            if(i < j)
+            {
+                arr[i] = arr[j];
+                i = i + 1;
+            }
+ 
+            while(i < j && arr[i] < k)
+            {
+                i = i + 1;
+            }
+ 
+            if(i < j)
+            {
+                arr[j] = arr[i];
+                j = j - 1;
+            }
+        }
+ 
+        arr[i] = k;
+        let tmp:int;
+        tmp = i - 1;
+        tmp = QuickSort(arr, low, tmp);
+        tmp = i + 1;
+        tmp = QuickSort(arr, tmp, high);
+    }
+    ret 0;
+}
+
+
+fn getMid(arr[0]:int) ->int{
+    let mid:int;
+    if (((n /2)*2) == n) {
+        mid = n / 2;
+        let tmp:int=mid-1;
+        ret (arr[mid] + arr[tmp]) / 2;
+    } else {
+        mid = n / 2;
+        ret arr[mid];
+    }
+}
+
+fn getMost(arr[0]:int)->int {
+    let count[1000]:int;
+    let i:int;
+    i = 0;
+    while (i < 1000) {
+        count[i] = 0;
+        i = i + 1;
+    }
+    i = 0;
+    let max:int;
+    let number:int;
+    max = 0;
+    while (i < n) {
+        let num:int;
+        num = arr[i];
+        count[num] = count[num] + 1;
+        if (count[num] > max) {
+            max = count[num];
+            number = num;
+        }
+        i = i + 1;
+    }
+    ret number;
+}
+
+fn revert(arr[0]:int)->int {
+    let temp:int;
+    let i:int;
+    let j:int;
+    i = 0;
+    j = 0;
+    while (i < j) {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        i = i + 1;
+        j = j - 1;
+    }
+    ret 0;
+}
+
+fn arrCopy(src[0]:int, target[0]:int)->int {
+    let i:int;
+    i = 0;
+    while (i < n) {
+        target[i] = src[i];
+        i = i + 1;
+    }
+    ret 0;
+}
+
+fn calSum(arr[0]:int, stride:int)->int {
+    let sum:int;
+    sum = 0;
+    let i:int;
+    i = 0;
+    while (i < n) {
+        sum = sum + arr[i];
+        if ((i -(i/stride)*stride) != (stride - 1)) {
+            arr[i] = 0;
+        } else {
+            arr[i] = sum;
+            sum = 0;
+        }
+        i = i + 1;
+    }
+    ret 0;
+}
+
+fn avgPooling(arr[0]:int, stride:int)->int {
+    let sum:int;
+    let i:int;
+    i = 0;
+    sum = 0;
+    let lastnum:int;
+    while (i < n) {
+        if (i < (stride - 1)) {
+            sum = sum + arr[i];
+        } else {
+            if (i == (stride - 1)) {
+            lastnum = arr[0];
+            arr[0] = sum / stride;
+        } else {
+            sum = sum + arr[i] - lastnum;
+            let tmp:int;
+            tmp=i - stride + 1;
+            lastnum = arr[tmp];
+            arr[tmp] = sum / stride;
+        }
+         }
+        i = i + 1;
+    }
+    i = n - stride + 1;
+    while (i < n) {
+        arr[i] = 0;
+        i = i + 1;
+    }
+    ret 0;
+}
+
+fn main()->int {
+    _sysy_starttime(209);
+    n = 32;
+    let arr[32]:int;
+    let result[32]:int;
+    arr[0] = 7;
+    arr[1] = 23;
+    arr[2] = 89;
+    arr[3] = 26;
+    arr[4] = 282;
+    arr[5] = 254;
+    arr[6] = 27;
+    arr[7] = 5;
+    arr[8] = 83;
+    arr[9] = 273;
+    arr[10] = 574;
+    arr[11] = 905;
+    arr[12] = 354;
+    arr[13] = 657;
+    arr[14] = 935;
+    arr[15] = 264;
+    arr[16] = 639;
+    arr[17] = 459;
+    arr[18] = 29;
+    arr[19] = 68;
+    arr[20] = 929;
+    arr[21] = 756;
+    arr[22] = 452;
+    arr[23] = 279;
+    arr[24] = 58;
+    arr[25] = 87;
+    arr[26] = 96;
+    arr[27] = 36;
+    arr[28] = 39;
+    arr[29] = 28;
+    arr[30] = 1;
+    arr[31] = 290;
+    let t:int;
+    t = arrCopy(arr, result);
+    t = revert(result);
+    let i:int;
+    i = 0;
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+    t = bubblesort(result);
+    i = 0;
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+    t = getMid(result);
+    putint(t);
+    t = getMost(result);
+    putint(t);
+
+    t = arrCopy(arr, result);
+    t = bubblesort(result);
+    i = 0;
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+    
+    t = arrCopy(arr, result);
+    t = insertsort(result);
+    i = 0;
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+    
+    t = arrCopy(arr, result);
+    i = 0;
+    t = 31;
+    t = QuickSort(result, i, t);
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+
+    t = arrCopy(arr, result);
+    t = calSum(result, 4);
+    i = 0;
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+    
+    t = arrCopy(arr, result);
+    t =  avgPooling(result, 3);
+    i = 0;
+    while (i < 32) {
+        t = result[i];
+        putint(t);
+        i = i + 1;
+    }
+    _sysy_stoptime(312);
+    ret 0;
+}
