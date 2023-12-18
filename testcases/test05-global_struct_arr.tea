@@ -1,0 +1,27 @@
+struct Node {
+    l:int,
+    r:int
+}
+
+let a:Node;
+let b:Node;
+let c[300]:Node;
+
+fn main()->int{
+    let d[500]:Node;
+    let count:int;
+    count = 100 / 10 + 20 - 3;
+
+    c[0].r = 200;
+    d[20].l = 1;
+    a.r = 1;
+    b.l = a.r;
+
+    while (count > 0) {
+        count = count - 1;
+        c[20].l = 1 + c[20].l;
+        d[10].r = d[20].l + c[20].l + count;
+    }
+
+    ret 0;
+}

@@ -1,0 +1,18 @@
+fn main()->int{
+    let i:int = 100;
+    let sum:int = 0;
+    let x:int = 3000;
+    let y:int = 3000;
+
+    if (x > 2000) {
+        while (x < 5000) {
+            x = x - 1;
+            sum = sum + i;
+            while (sum < x) {
+                y = y + sum;
+            }
+        }
+    }
+
+    ret 0;
+}
