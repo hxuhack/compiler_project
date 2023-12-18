@@ -1,0 +1,23 @@
+struct Node {
+    l:int,
+    r:int
+}
+
+fn main()->int{
+    let a[1000]:int;
+    let b[780]:int;
+
+    let c:Node;
+    let d:Node;
+
+    a[120] = 1;
+    b[0] = a[120];
+
+    c.l = 1;
+    c.r = 1;
+
+    d.r = c.l;
+    d.l = c.r;
+
+    ret 0;
+}
