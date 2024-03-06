@@ -1,0 +1,701 @@
+A_program 
+	|--A_programElement 
+		|--A_fnDef 
+			|--A_fnDecl fn quickread(
+				|--A_paramDecl )->
+			|--A_type int{
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar ch:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 
+									|--A_fnCall getch();
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar x:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 0;
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar f:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 0;
+
+			|--A_codeBlockStmt 
+				|--A_whileStmt while(
+					|--A_boolExpr 
+						|--A_boolBiOpExpr 
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch<
+												|--A_exprUnit 48))||
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch>
+												|--A_exprUnit 57))){
+
+					|--A_codeBlockStmt 
+						|--A_ifStmt if(
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch==
+												|--A_exprUnit 45))){
+
+							|--A_codeBlockStmt 
+								|--A_assignStmt 
+									|--A_leftVal f = 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 1;
+}
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal ch = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_exprUnit 
+										|--A_fnCall getch();
+}
+
+			|--A_codeBlockStmt 
+				|--A_whileStmt while(
+					|--A_boolExpr 
+						|--A_boolBiOpExpr 
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch>=
+												|--A_exprUnit 48))&&
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch<=
+												|--A_exprUnit 57))){
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal x = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_arithBiOpExpr 
+										|--A_arithExpr 
+											|--A_arithBiOpExpr 
+												|--A_arithExpr 
+													|--A_arithBiOpExpr 
+														|--A_arithExpr 
+															|--A_exprUnit x*
+														|--A_arithExpr 
+															|--A_exprUnit 10+
+												|--A_arithExpr 
+													|--A_exprUnit ch-
+										|--A_arithExpr 
+											|--A_exprUnit 48;
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal ch = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_exprUnit 
+										|--A_fnCall getch();
+}
+
+			|--A_codeBlockStmt 
+				|--A_ifStmt if(
+					|--A_boolExpr 
+						|--A_boolUnit (
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_comExpr 
+										|--A_exprUnit f!=
+										|--A_exprUnit 0))){
+
+					|--A_codeBlockStmt 
+						|--A_returnStmt ret 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 
+									|--A_arithUExpr -
+										|--A_exprUnit x;
+}else{
+
+					|--A_codeBlockStmt 
+						|--A_returnStmt ret 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit x;
+}
+}
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDecl 
+				|--A_varDeclScalar n:
+				|--A_type int;
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDecl 
+				|--A_varDeclScalar m:
+				|--A_type int;
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDecl 
+				|--A_varDeclArray to[5005]:
+				|--A_type int;
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDecl 
+				|--A_varDeclArray next[5005]:
+				|--A_type int;
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDecl 
+				|--A_varDeclArray head[1005]:
+				|--A_type int;
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDef 
+				|--A_varDefScalar cnt:
+				|--A_type int = 
+				|--A_rightVal 
+					|--A_arithExpr 
+						|--A_exprUnit 0;
+
+	|--A_programElement 
+		|--A_varDeclStmt let 
+			|--A_varDecl 
+				|--A_varDeclArray vis[1005]:
+				|--A_type int;
+
+	|--A_programElement 
+		|--A_fnDef 
+			|--A_fnDecl fn addedge(
+				|--A_paramDecl 
+					|--A_varDecl 
+						|--A_varDeclScalar from:
+						|--A_type int, 
+					|--A_varDecl 
+						|--A_varDeclScalar To:
+						|--A_type int){
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal to[
+							|--A_indexExpr cnt] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit To;
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal next[
+							|--A_indexExpr cnt] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit 
+								|--A_arrayExpr 
+								|--A_leftVal head[
+									|--A_indexExpr from];
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal head[
+							|--A_indexExpr from] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit cnt;
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal cnt = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_arithBiOpExpr 
+								|--A_arithExpr 
+									|--A_exprUnit cnt+
+								|--A_arithExpr 
+									|--A_exprUnit 1;
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal to[
+							|--A_indexExpr cnt] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit from;
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal next[
+							|--A_indexExpr cnt] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit 
+								|--A_arrayExpr 
+								|--A_leftVal head[
+									|--A_indexExpr To];
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal head[
+							|--A_indexExpr To] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit cnt;
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal cnt = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_arithBiOpExpr 
+								|--A_arithExpr 
+									|--A_exprUnit cnt+
+								|--A_arithExpr 
+									|--A_exprUnit 1;
+}
+
+	|--A_programElement 
+		|--A_fnDef 
+			|--A_fnDecl fn init(
+				|--A_paramDecl ){
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar i:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 0;
+
+			|--A_codeBlockStmt 
+				|--A_whileStmt while(
+					|--A_boolExpr 
+						|--A_boolUnit (
+							|--A_comExpr 
+								|--A_exprUnit i<
+								|--A_exprUnit 1005)){
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal 
+								|--A_arrayExpr 
+								|--A_leftVal head[
+									|--A_indexExpr i] = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_exprUnit 
+										|--A_arithUExpr -
+											|--A_exprUnit 1;
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal i = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_arithBiOpExpr 
+										|--A_arithExpr 
+											|--A_exprUnit i+
+										|--A_arithExpr 
+											|--A_exprUnit 1;
+}
+}
+
+	|--A_programElement 
+		|--A_fnDef 
+			|--A_fnDecl fn clear(
+				|--A_paramDecl ){
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar i:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 1;
+
+			|--A_codeBlockStmt 
+				|--A_whileStmt while(
+					|--A_boolExpr 
+						|--A_boolUnit (
+							|--A_comExpr 
+								|--A_exprUnit i<=
+								|--A_exprUnit n)){
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal 
+								|--A_arrayExpr 
+								|--A_leftVal vis[
+									|--A_indexExpr i] = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_exprUnit 0;
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal i = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_arithBiOpExpr 
+										|--A_arithExpr 
+											|--A_exprUnit i+
+										|--A_arithExpr 
+											|--A_exprUnit 1;
+}
+}
+
+	|--A_programElement 
+		|--A_fnDef 
+			|--A_fnDecl fn same(
+				|--A_paramDecl 
+					|--A_varDecl 
+						|--A_varDeclScalar x:
+						|--A_type int, 
+					|--A_varDecl 
+						|--A_varDeclScalar tar:
+						|--A_type int)->
+			|--A_type int{
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal 
+						|--A_arrayExpr 
+						|--A_leftVal vis[
+							|--A_indexExpr x] = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit 1;
+
+			|--A_codeBlockStmt 
+				|--A_ifStmt if(
+					|--A_boolExpr 
+						|--A_boolUnit (
+							|--A_comExpr 
+								|--A_exprUnit x==
+								|--A_exprUnit tar)){
+
+					|--A_codeBlockStmt 
+						|--A_returnStmt ret 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 1;
+}
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar i:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 
+									|--A_arrayExpr 
+									|--A_leftVal head[
+										|--A_indexExpr x];
+
+			|--A_codeBlockStmt 
+				|--A_whileStmt while(
+					|--A_boolExpr 
+						|--A_boolUnit (
+							|--A_comExpr 
+								|--A_exprUnit i!=
+								|--A_exprUnit 
+									|--A_arithUExpr -
+										|--A_exprUnit 1)){
+
+					|--A_codeBlockStmt 
+						|--A_varDeclStmt let 
+							|--A_varDef 
+								|--A_varDefScalar y:
+								|--A_type int = 
+								|--A_rightVal 
+									|--A_arithExpr 
+										|--A_exprUnit 
+											|--A_arrayExpr 
+											|--A_leftVal to[
+												|--A_indexExpr i];
+
+					|--A_codeBlockStmt 
+						|--A_ifStmt if(
+							|--A_boolExpr 
+								|--A_boolBiOpExpr 
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit 
+													|--A_arrayExpr 
+													|--A_leftVal vis[
+														|--A_indexExpr y]==
+												|--A_exprUnit 0)&&
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit 
+													|--A_fnCall same(
+													|--A_rightVal 
+														|--A_arithExpr 
+															|--A_exprUnit y, 
+													|--A_rightVal 
+														|--A_arithExpr 
+															|--A_exprUnit tar)!=
+												|--A_exprUnit 0)){
+
+							|--A_codeBlockStmt 
+								|--A_returnStmt ret 
+								|--A_rightVal 
+									|--A_arithExpr 
+										|--A_exprUnit 1;
+}
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal i = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_exprUnit 
+										|--A_arrayExpr 
+										|--A_leftVal next[
+											|--A_indexExpr i];
+}
+
+			|--A_codeBlockStmt 
+				|--A_returnStmt ret 
+				|--A_rightVal 
+					|--A_arithExpr 
+						|--A_exprUnit 0;
+}
+
+	|--A_programElement 
+		|--A_fnDef 
+			|--A_fnDecl fn main(
+				|--A_paramDecl )->
+			|--A_type int{
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal n = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit 
+								|--A_fnCall quickread();
+
+			|--A_codeBlockStmt 
+				|--A_assignStmt 
+					|--A_leftVal m = 
+					|--A_rightVal 
+						|--A_arithExpr 
+							|--A_exprUnit 
+								|--A_fnCall quickread();
+
+			|--A_codeBlockStmt 
+				|--A_callStmt 
+					|--A_fnCall init();
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar ch:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 0;
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar x:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 0;
+
+			|--A_codeBlockStmt 
+				|--A_varDeclStmt let 
+					|--A_varDef 
+						|--A_varDefScalar y:
+						|--A_type int = 
+						|--A_rightVal 
+							|--A_arithExpr 
+								|--A_exprUnit 0;
+
+			|--A_codeBlockStmt 
+				|--A_whileStmt while(
+					|--A_boolExpr 
+						|--A_boolUnit (
+							|--A_comExpr 
+								|--A_exprUnit m!=
+								|--A_exprUnit 0)){
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal ch = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_exprUnit 
+										|--A_fnCall getch();
+
+					|--A_codeBlockStmt 
+						|--A_whileStmt while(
+							|--A_boolExpr 
+								|--A_boolBiOpExpr 
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch!=
+												|--A_exprUnit 81)&&
+									|--A_boolExpr 
+										|--A_boolUnit (
+											|--A_comExpr 
+												|--A_exprUnit ch!=
+												|--A_exprUnit 85)){
+
+							|--A_codeBlockStmt 
+								|--A_assignStmt 
+									|--A_leftVal ch = 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 
+												|--A_fnCall getch();
+}
+
+					|--A_codeBlockStmt 
+						|--A_ifStmt if(
+							|--A_boolExpr 
+								|--A_boolUnit (
+									|--A_comExpr 
+										|--A_exprUnit ch==
+										|--A_exprUnit 81)){
+
+							|--A_codeBlockStmt 
+								|--A_assignStmt 
+									|--A_leftVal x = 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 
+												|--A_fnCall quickread();
+
+							|--A_codeBlockStmt 
+								|--A_assignStmt 
+									|--A_leftVal y = 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 
+												|--A_fnCall quickread();
+
+							|--A_codeBlockStmt 
+								|--A_callStmt 
+									|--A_fnCall clear();
+
+							|--A_codeBlockStmt 
+								|--A_callStmt 
+									|--A_fnCall putint(
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 
+												|--A_fnCall same(
+												|--A_rightVal 
+													|--A_arithExpr 
+														|--A_exprUnit x, 
+												|--A_rightVal 
+													|--A_arithExpr 
+														|--A_exprUnit y));
+
+							|--A_codeBlockStmt 
+								|--A_callStmt 
+									|--A_fnCall putch(
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 10);
+}else{
+
+							|--A_codeBlockStmt 
+								|--A_assignStmt 
+									|--A_leftVal x = 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 
+												|--A_fnCall quickread();
+
+							|--A_codeBlockStmt 
+								|--A_assignStmt 
+									|--A_leftVal y = 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit 
+												|--A_fnCall quickread();
+
+							|--A_codeBlockStmt 
+								|--A_callStmt 
+									|--A_fnCall addedge(
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit x, 
+									|--A_rightVal 
+										|--A_arithExpr 
+											|--A_exprUnit y);
+}
+
+					|--A_codeBlockStmt 
+						|--A_assignStmt 
+							|--A_leftVal m = 
+							|--A_rightVal 
+								|--A_arithExpr 
+									|--A_arithBiOpExpr 
+										|--A_arithExpr 
+											|--A_exprUnit m-
+										|--A_arithExpr 
+											|--A_exprUnit 1;
+}
+
+			|--A_codeBlockStmt 
+				|--A_returnStmt ret 
+				|--A_rightVal 
+					|--A_arithExpr 
+						|--A_exprUnit 0;
+}

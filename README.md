@@ -1,2 +1,2 @@
 # compiler_project
-This is the compiler project release repo for the SOFT130061 @ Fudan University.
+This is the compiler project release repo for the COMP130014.02 @ Fudan University.

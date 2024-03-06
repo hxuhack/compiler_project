@@ -62,7 +62,7 @@ ProgramElementList: ProgramElement ProgramElementList
 }
 |
 {
-  $$ = NULL;
+  $$ = nullptr;
 }
 ;
 

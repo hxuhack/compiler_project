@@ -1,0 +1,33 @@
+let N:int;
+
+let newline:int;
+
+fn factor(n:int)->int
+{
+    let i:int;
+    let sum:int;
+    sum=0;
+    i=1;
+    while(i<(n+1))
+    {
+        if(((n/i)*i) == n)
+        {
+            sum=sum+i;
+        }
+        i=i+1;
+    }
+    ret sum;
+}
+
+fn main()->int
+{
+    _sysy_starttime(24);
+    N=4;
+    newline=10;
+    let i:int;
+    let m:int;
+    m = 1478;
+    let t:int;
+    _sysy_stoptime(31);
+    ret factor(m);
+}

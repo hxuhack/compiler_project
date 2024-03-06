@@ -73,13 +73,13 @@ struct aA_indexExpr_ {
 
 struct aA_arrayExpr_ {
     A_pos pos;
-    string* arr;
+    aA_leftVal arr;
     aA_indexExpr idx;
 };
 
 struct aA_memberExpr_ {
     A_pos pos;
-    string* structId;
+    aA_leftVal structId;
     string* memberId;
 };
 
