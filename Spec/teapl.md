@@ -29,8 +29,6 @@ arithBiOp := < + > | < - > | < * > | < / >
 arithUOp := < - >
 ```
 
-主要可能是优先级的问题
-
 **Condition Expressions**
 
 ```
