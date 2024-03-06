@@ -12,6 +12,7 @@ int calc(char *s, int len);
 // your lexer
 
 %%
+<INITIAL>"\t" { col+=4; }
 <INITIAL>[1-9][0-9]* {
     yylval.tokenNum = A_TokenNum(A_Pos(line, col), calc(yytext, yyleng));
     col+=yyleng;
