@@ -193,5 +193,14 @@ fn foo(){
 ```
 
 ```
-comment :=  < // > _* | < /* > _* < */ >  
+comment :=  < // > .* | < /* > [^]* < */ >  
 ```
+`.`: This is a special character that matches almost any character except `\n`.
+
+`[^]`: This is a character class that matches any character not in the brackets(`[^ABC]`: A single character that is not 'A', 'B', or 'C'). Since there are no characters in the brackets, it matches any character.
+
+`*`: This is a quantifier that means "zero or more of the preceding element".
+
+`.*`: This regular expression matches any number (including zero) of almost any character, except for newline characters.
+
+`[^]*`: This regular expression matches any number (including zero) of any character, including newline characters. 
