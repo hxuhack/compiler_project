@@ -1,5 +1,7 @@
 ## Grammar of TeaPL
 
+**Note: The precedence and associativity of operators in TeaPL are the same as [those in C language](https://c-cpp.com/c/language/operator_precedence).**
+
 Each program is composed of variable declarations, function declarations, function definitions, and comments.
 
 ```
