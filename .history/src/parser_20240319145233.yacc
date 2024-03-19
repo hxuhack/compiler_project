@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "TeaplAst.h"
 
-// extern int yydebug = 1; 
-
 extern A_pos pos;
 extern A_program root;
 

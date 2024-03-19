@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "TeaplAst.h"
 
-// extern int yydebug = 1; 
-
 extern A_pos pos;
 extern A_program root;
 
@@ -483,7 +481,7 @@ CodeBlockStmt: VarDeclStmt
 }
 | ReturnStmt
 {
-  $$ = A_BlockReturnStmt($1->pos, $1); 
+  $$ = A_BLockReturnStmt($1->pos, $1); 
 }
 | CONTINUE SEMICOLON
 {

@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "TeaplAst.h"
 
-// extern int yydebug = 1; 
-
 extern A_pos pos;
 extern A_program root;
 
@@ -391,15 +389,15 @@ LeftVal: ID
 }
 | ID OPENBRACKET NUM CLOSEBRACKET
 {
-  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal($1->pos, $1->id), A_NumIndexExpr($3->pos, $3->num))); 
+  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal, A_NumIndexExpr($3->pos, $3->num))); 
 }
 | ID OPENBRACKET ID CLOSEBRACKET
 {
-  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal($1->pos, $1->id), A_IdIndexExpr($3->pos, $3->id)));
+  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, $1->id, A_IdIndexExpr($3->pos, $3->id)));
 }
 | ID DOT ID
 {
-  $$ = A_MemberExprLVal($1->pos, A_MemberExpr($1->pos, A_IdExprLVal($1->pos, $1->id), $3->id)); 
+  $$ = A_MemberExprLVal($1->pos, A_MemberExpr($1->pos, $1->id, $3->id)); 
 }
 ; 
 
@@ -463,7 +461,7 @@ CodeBlockStmtList: CodeBlockStmt
 
 CodeBlockStmt: VarDeclStmt
 {
-  $$ = A_BlockVarDeclStmt($1->pos, $1); 
+  $$ = A_VarDeclStmt($1->pos, $1); 
 }
 | AssignStmt
 {
@@ -483,7 +481,7 @@ CodeBlockStmt: VarDeclStmt
 }
 | ReturnStmt
 {
-  $$ = A_BlockReturnStmt($1->pos, $1); 
+  $$ = A_BLockReturnStmt($1->pos, $1); 
 }
 | CONTINUE SEMICOLON
 {

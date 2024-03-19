@@ -12,9 +12,9 @@ int calc(char *s, int len);
 %s COMMENT1
 %s COMMENT2
 
-%%
 
-<INITIAL>{
+%%
+<INITIAL> {
 "//" {BEGIN COMMENT1; }
 "/*" {BEGIN COMMENT2; }
 
@@ -26,7 +26,7 @@ int calc(char *s, int len);
 "while" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return WHILE; }
 "break" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return BREAK; }
 "continue" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return CONTINUE; }
-"int" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return NType; }
+"int" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return INT; }
 "struct" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return STRUCT; }
 
 [\n\r] {line++; col=0; }
@@ -53,49 +53,36 @@ int calc(char *s, int len);
 ")" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return RPa; }
 "{" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return OPENCURLYBRACKET; }
 "}" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return CLOSECURLYBRACKET; }
-"[" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return OPENBRACKET; }
-"]" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return CLOSEBRACKET; }
-";" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return SEMICOLON; }
-"," {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return COMMA; }
-":" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return COLON; }
-"." {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return DOT; }
 
-" " {col++; }
-"\t" {col+=4; }
-[a-zA-Z]+([a-zA-Z0-9]*) {
-    int len = strlen(yytext);
-    char* new_text = (char *)malloc( (len + 1) * sizeof(char) ); 
-    strcpy(new_text, yytext);
-    new_text[len] = '\0';
-    yylval.tokenId = A_TokenId(A_Pos(line, col), new_text);
-    col += strlen(yytext); 
-    return ID; 
-}
 
-[1-9][0-9]* {
+<INITIAL>"\t" { col+=4; }
+<INITIAL>[1-9][0-9]* {
     yylval.tokenNum = A_TokenNum(A_Pos(line, col), calc(yytext, yyleng));
     col+=yyleng;
     return NUM;
 }
-
-0 {
+<INITIAL>0 {
     yylval.tokenNum = A_TokenNum(A_Pos(line, col), 0);
     ++col;
     return NUM;
 }
 }
-
-<COMMENT1>{
+<COMMENT1> {
 [\n\r] {
     BEGIN INITIAL;
-    ++line; col = 0; }
-. { /* ignore comment */ }
+    ++line;
+    col = 0;
+    .{ /* ignore comment */ }
+}
 }
 
-<COMMENT2>{
-"*/" { BEGIN INITIAL; }
-[\n\r] { ++line; col = 0; }
-. { /* ignore comment */ }
+<COMMENT2> {
+"*/" {BEGIN INITIAL; }
+[\n\r] {
+    ++line;
+    col = 0;
+    .{ /* ignore comment */ }
+}
 }
 %%
 

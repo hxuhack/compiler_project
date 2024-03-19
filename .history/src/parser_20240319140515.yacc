@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "TeaplAst.h"
 
-// extern int yydebug = 1; 
-
 extern A_pos pos;
 extern A_program root;
 
@@ -217,7 +215,7 @@ Type : NType
 // | id < [ > num < ] < : > type < = > < { > rightVal ( <, > rightVal)* | epsilon < } > id < [ > num < ] > < = > < { > rightVal (< , > rightVal)* | epsilon < } >   // array type
 VarDef : ID ASSIGN RightVal 
 {
-  $$ = A_VarDef_Scalar($1->pos, A_VarDefScalar($1->pos, $1->id, NULL, $3));
+  $$ = A_VarDef_Scalar($1->pos, A_VarDefScalar($1->pos, $1->id, NULL), $3);
 }
 | ID COLON Type ASSIGN RightVal 
 {
@@ -312,15 +310,15 @@ ExprUnit: NUM
 }
 | ID OPENBRACKET ID CLOSEBRACKET
 {
-  $$ = A_ArrayExprUnit($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal($1->pos, $1->id), A_IdIndexExpr($3->pos, $3->id))); 
+  $$ = A_ArrayExprUnit($1->pos, A_ArrayExpr($1->pos, $1->id, A_IdIndexExpr($3->pos, $3->id))); 
 }
 | ID OPENBRACKET NUM CLOSEBRACKET
 {
-  $$ = A_ArrayExprUnit($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal($1->pos, $1->id), A_NumIndexExpr($3->pos, $3->num))); 
+  $$ = A_ArrayExprUnit($1->pos, A_ArrayExpr($1->pos, $1->A_IdLeftVal($1->pos, $1->id), A_NumIndexExpr($3->pos, $3->num))); 
 }
 | ID DOT ID
 {
-  $$ = A_MemberExprUnit($1->pos, A_MemberExpr($1->pos, A_IdExprLVal($1->pos, $1->id), $3->id)); 
+  $$ = A_MemberExprUnit($1->pos, A_MemberExpr($1->pos, $1->id, $3->id)); 
 }
 | SUB ExprUnit 
 {
@@ -341,11 +339,15 @@ BoolExpr : BoolExpr AND BoolExpr
 }
 | BoolUnit 
 {
-  $$ = A_BoolExpr($1->pos, $1); 
+  $$ = A_BoolUnit($1->pos, $1); 
 }
 ; 
 
 BoolUnit : ExprUnit GT ExprUnit 
+{
+  $$ = A_BoolBiOp_Expr($1->pos, A_BoolBiOpExpr($1->pos, A_eq, $1, $3)); 
+}
+| ExprUnit GT ExprUnit 
 {
   $$ = A_ComExprUnit($1->pos, A_ComExpr($1->pos, A_gt, $1, $3)); 
 }
@@ -391,15 +393,11 @@ LeftVal: ID
 }
 | ID OPENBRACKET NUM CLOSEBRACKET
 {
-  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal($1->pos, $1->id), A_NumIndexExpr($3->pos, $3->num))); 
-}
-| ID OPENBRACKET ID CLOSEBRACKET
-{
-  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, A_IdExprLVal($1->pos, $1->id), A_IdIndexExpr($3->pos, $3->id)));
+  $$ = A_ArrExprLVal($1->pos, A_ArrayExpr($1->pos, $1->id, A_NumIndexExpr($3->pos, $3->id))); 
 }
 | ID DOT ID
 {
-  $$ = A_MemberExprLVal($1->pos, A_MemberExpr($1->pos, A_IdExprLVal($1->pos, $1->id), $3->id)); 
+  $$ = A_MemberExprLVal($1->pos, A_MemberExpr($1->pos, $1->id, $3->id)); 
 }
 ; 
 
@@ -463,7 +461,7 @@ CodeBlockStmtList: CodeBlockStmt
 
 CodeBlockStmt: VarDeclStmt
 {
-  $$ = A_BlockVarDeclStmt($1->pos, $1); 
+  $$ = A_VarDeclStmt($1->pos, $1); 
 }
 | AssignStmt
 {
@@ -483,7 +481,7 @@ CodeBlockStmt: VarDeclStmt
 }
 | ReturnStmt
 {
-  $$ = A_BlockReturnStmt($1->pos, $1); 
+  $$ = A_BLockReturnStmt($1->pos, $1); 
 }
 | CONTINUE SEMICOLON
 {

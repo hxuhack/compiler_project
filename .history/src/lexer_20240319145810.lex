@@ -26,7 +26,7 @@ int calc(char *s, int len);
 "while" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return WHILE; }
 "break" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return BREAK; }
 "continue" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return CONTINUE; }
-"int" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return NType; }
+"int" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return INT; }
 "struct" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return STRUCT; }
 
 [\n\r] {line++; col=0; }

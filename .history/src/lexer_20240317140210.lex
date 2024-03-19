@@ -12,9 +12,9 @@ int calc(char *s, int len);
 %s COMMENT1
 %s COMMENT2
 
-%%
 
-<INITIAL>{
+%%
+<INITIAL> {
 "//" {BEGIN COMMENT1; }
 "/*" {BEGIN COMMENT2; }
 
@@ -26,7 +26,7 @@ int calc(char *s, int len);
 "while" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return WHILE; }
 "break" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return BREAK; }
 "continue" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return CONTINUE; }
-"int" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return NType; }
+"int" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return INT; }
 "struct" {yylval.pos=A_Pos(line, col); col+=strlen(yytext); return STRUCT; }
 
 [\n\r] {line++; col=0; }
@@ -85,17 +85,22 @@ int calc(char *s, int len);
 }
 }
 
-<COMMENT1>{
+<COMMENT1> {
 [\n\r] {
     BEGIN INITIAL;
-    ++line; col = 0; }
-. { /* ignore comment */ }
+    ++line;
+    col = 0;
+    .{ /* ignore comment */ }
 }
 
-<COMMENT2>{
-"*/" { BEGIN INITIAL; }
-[\n\r] { ++line; col = 0; }
-. { /* ignore comment */ }
+
+<COMMENT2> {
+"*/" {BEGIN INITIAL; }
+[\n\r] {
+    ++line;
+    col = 0;
+    .{ /* ignore comment */ }
+}
 }
 %%
 

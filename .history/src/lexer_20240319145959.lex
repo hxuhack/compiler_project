@@ -106,3 +106,7 @@ int calc(char *s, int len) {
         ret = ret * 10 + (s[i] - '0');
     return ret;
 }
+
+.{
+    printf("Illegal input \"%c\"\n", yytext[0]);
+}

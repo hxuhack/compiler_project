@@ -97,6 +97,10 @@ int calc(char *s, int len);
 [\n\r] { ++line; col = 0; }
 . { /* ignore comment */ }
 }
+
+.{
+printf("Illegal input \"%c\"\n", yytext[0]);
+}
 %%
 
 // This function takes a string of digits and its length as input, and returns the integer value of the string.
