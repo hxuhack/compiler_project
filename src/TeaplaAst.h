@@ -6,7 +6,7 @@
 
 using std::string;
 using std::vector;
-
+// 
 typedef struct aA_type_* aA_type;
 typedef struct aA_varDecl_* aA_varDecl;
 typedef struct aA_varDef_* aA_varDef;
@@ -73,13 +73,13 @@ struct aA_indexExpr_ {
 
 struct aA_arrayExpr_ {
     A_pos pos;
-    string* arr;
+    aA_leftVal arr;
     aA_indexExpr idx;
 };
 
 struct aA_memberExpr_ {
     A_pos pos;
-    string* structId;
+    aA_leftVal structId;
     string* memberId;
 };
 
