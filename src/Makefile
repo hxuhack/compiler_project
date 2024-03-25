@@ -11,7 +11,7 @@ run: $(patsubst $(TESTCASE_DIR)/%.tea,$(TESTCASE_DIR)/%.ast,$(TESTCASES))
 
 $(TESTCASE_DIR)/%.ast: $(TESTCASE_DIR)/%.tea $(TESTCASE_DIR)/%.refast compiler
 	@./compiler $< $@
-	@diff $@ $(word 2,$^)
+	@diff $@ $(word 2,$^) -q
 	@echo PASS $*
 	@echo
 
