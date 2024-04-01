@@ -8,7 +8,7 @@ extern A_program root;
 extern int yylex(void);
 extern "C"{
 extern void yyerror(char *s); 
-extern int  yywrap();
+extern int yywrap();
 }
 
 %}
@@ -19,7 +19,6 @@ extern int  yywrap();
 %union {
 
   A_tokenId tokenId;
-  // A_nativeType nativeType;
   A_type type;
   A_tokenNum tokenNum;
   A_rightVal rightVal;
@@ -36,7 +35,6 @@ extern int  yywrap();
 
   A_varDeclList varDeclList;
   A_structDef structDef;
-
   
   A_varDecl varDecl;
   A_varDef varDef;
@@ -54,8 +52,6 @@ extern int  yywrap();
   A_returnStmt returnStmt;
   A_whileStmt whileStmt;
 
-  
-  // A_boolUOp boolUOp;
   A_comOp comOp;
   A_boolUnit boolUnit;
   A_boolBiOp boolBiOp;
@@ -82,8 +78,6 @@ extern int  yywrap();
 %token <tokenNum> NUM
 %token <tokenId> ID
 
-// %type <nativeType> NativeType
-// %type <tokenId> StructType
 %type <type> Type
 %token <pos> INT
 
@@ -150,7 +144,6 @@ extern int  yywrap();
 
 %type <whileStmt> WhileStmt
 
-// %type <boolUOp> BoolUOp
 %type <comOp> ComOp
 %type <boolUnit> BoolUnit
 %type <boolBiOp> BoolBiOp
@@ -264,10 +257,6 @@ ExprUnit: NUM
 {
   $$ = A_ArithExprUnit($1, $2);
 }
-| FnCall
-{
-  $$ = A_CallExprUnit($1->pos, $1);
-}
 | ArrayExpr
 {
   $$ = A_ArrayExprUnit($1->pos, $1);
@@ -279,6 +268,10 @@ ExprUnit: NUM
 | ArithUExpr
 {
   $$ = A_ArithUExprUnit($1->pos, $1);
+}
+| FnCall
+{
+  $$ = A_CallExprUnit($1->pos, $1);
 }
 ;
 ArithUExpr: SUB ExprUnit
@@ -297,7 +290,6 @@ Type: INT
   $$ = A_StructType($1->pos, $1->id);
 }
 ;
-
 
 VarDeclStmt: LET VarDecl SEMICOLON
 {
@@ -342,7 +334,6 @@ VarDef: ID COLON Type EQUAL RightVal
   $$ = A_VarDef_Array($1->pos, A_VarDefArray($1->pos, $1->id, $3->num, NULL, $7));
 }
 ;
-
 StructDef: STRUCT ID OPEN_BRACE VarDeclList CLOSED_BRACE
 {
   $$ = A_StructDef($1, $2->id, $4);
@@ -494,6 +485,12 @@ IfStmt: IF LEFT_PARENTHESIS BoolExpr RIGHT_PARENTHESIS OPEN_BRACE CodeBlockStmtL
   $$ = A_IfStmt($1, $3, $6, $10);
 }
 ;
+WhileStmt: WHILE LEFT_PARENTHESIS BoolExpr RIGHT_PARENTHESIS OPEN_BRACE CodeBlockStmtList CLOSED_BRACE
+{
+  $$ = A_WhileStmt($1, $3, $6);
+}
+;
+
 BoolExpr: BoolExpr BoolBiOp BoolUnit
 {
   $$ = A_BoolBiOp_Expr($1->pos, A_BoolBiOpExpr($1->pos, $2, $1, A_BoolExpr($3->pos, $3)));
@@ -525,23 +522,7 @@ BoolBiOp: AND
   $$ = A_or;
 }
 ;
-ComOp: MORE
-{
-  $$ = A_gt;
-}
-| LESS
-{
-  $$ = A_lt;
-}
-| MORE_EQUAL
-{
-  $$ = A_ge;
-}
-| LESS_EQUAL
-{
-  $$ = A_le;
-}
-| IS
+ComOp: IS
 {
   $$ = A_eq;
 }
@@ -549,11 +530,21 @@ ComOp: MORE
 {
   $$ = A_ne;
 }
-;
-
-WhileStmt: WHILE LEFT_PARENTHESIS BoolExpr RIGHT_PARENTHESIS OPEN_BRACE CodeBlockStmtList CLOSED_BRACE
+| MORE
 {
-  $$ = A_WhileStmt($1, $3, $6);
+  $$ = A_gt;
+}
+| MORE_EQUAL
+{
+  $$ = A_ge;
+}
+| LESS
+{
+  $$ = A_lt;
+}
+| LESS_EQUAL
+{
+  $$ = A_le;
 }
 ;
 

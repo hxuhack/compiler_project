@@ -145,7 +145,6 @@ union YYSTYPE
 
 
   A_tokenId tokenId;
-  // A_nativeType nativeType;
   A_type type;
   A_tokenNum tokenNum;
   A_rightVal rightVal;
@@ -162,7 +161,6 @@ union YYSTYPE
 
   A_varDeclList varDeclList;
   A_structDef structDef;
-
   
   A_varDecl varDecl;
   A_varDef varDef;
@@ -180,8 +178,6 @@ union YYSTYPE
   A_returnStmt returnStmt;
   A_whileStmt whileStmt;
 
-  
-  // A_boolUOp boolUOp;
   A_comOp comOp;
   A_boolUnit boolUnit;
   A_boolBiOp boolBiOp;
@@ -195,7 +191,7 @@ union YYSTYPE
   A_codeBlockStmtList codeBlockStmtList;
   A_fnDef fnDef;
 
-#line 199 "y.tab.hpp"
+#line 195 "y.tab.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

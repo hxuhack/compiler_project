@@ -29,9 +29,8 @@ extern "C" { void yyerror(char*); }
 "if"                    { return IF; }
 "else"                  { return ELSE; }
 [1-9][0-9]*|0	        { yylval.tokenNum = A_TokenNum(A_Pos(line, col), atoi(yytext)); return NUM; }
-[_a-zA-Z][_a-zA-Z0-9]*    { char * temp = (char *)malloc(strlen(yytext) + 1); strcpy(temp, yytext); yylval.tokenId = A_TokenId(A_Pos(line, col), temp); return ID; }
-
-"int"                   { return INT; }
+[_a-zA-Z][_a-zA-Z0-9]*  { char * temp = (char *)malloc(strlen(yytext) + 1); strcpy(temp, yytext); yylval.tokenId = A_TokenId(A_Pos(line, col), temp); return ID; }
+"int" { return INT; }
 "+"	                    { return ADD; }
 "-"	                    { return SUB; }
 "*"                     { return MUL; }
