@@ -88,7 +88,7 @@ bool comp_tc_type(tc_type target, tc_type t){
         return false;
     
     // arr kind first
-    if (target->isVarArrFunc & t->isVarArrFunc == 0)
+    if (target->isVarArrFunc && t->isVarArrFunc == 0)
         return false;
     
     // if target type is nullptr, alwayse ok
