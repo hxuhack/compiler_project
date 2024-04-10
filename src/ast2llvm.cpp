@@ -419,7 +419,7 @@ std::vector<LLVMIR::L_def*> ast2llvmProg_first(aA_program p)
             {
                 type.type = ReturnType::VOID_TYPE;
             }
-            if(v->u.fnDeclStmt->fnDecl->type->type == A_nativeTypeKind)
+            else if(v->u.fnDeclStmt->fnDecl->type->type == A_nativeTypeKind)
             {
                 type.type = ReturnType::INT_TYPE;
             }
@@ -507,7 +507,38 @@ std::vector<LLVMIR::L_def*> ast2llvmProg_first(aA_program p)
 
 std::vector<Func_local*> ast2llvmProg_second(aA_program p)
 {
-    
+    vector<Func_local*> funcs;
+    for(const auto & v : p->programElements)
+    {
+        switch (v->kind)
+        {
+        case A_programNullStmtKind:
+        {
+            break;
+        }
+        case A_programVarDeclStmtKind:
+        {
+            break;
+        }
+        case A_programStructDefKind:
+        {
+            break;
+        }
+        case A_programFnDeclStmtKind:
+        {
+            break;
+        }
+        case A_programFnDefKind:
+        {
+            funcs.push_back(ast2llvmFunc(v->u.fnDef));
+            break;
+        }
+        default:
+            assert(0);
+            break;
+        }
+    }
+    return funcs;
 }
 
 Func_local* ast2llvmFunc(aA_fnDef f)
@@ -582,5 +613,20 @@ LLVMIR::L_func* ast2llvmFuncBlock(Func_local *f)
 
 void ast2llvm_moveAlloca(LLVMIR::L_func *f)
 {
-    
+    auto first_block = f->blocks.front();
+    for(auto i = ++f->blocks.begin();i != f->blocks.end();++i)
+    {
+        for(auto it = (*i)->instrs.begin();it != (*i)->instrs.end();)
+        {
+            if((*it)->type == L_StmKind::T_ALLOCA)
+            {
+                first_block->instrs.insert(++first_block->instrs.begin(),*it);
+                it = (*i)->instrs.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+    }
 }
