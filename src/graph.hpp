@@ -114,8 +114,8 @@ Node<T>* Graph<T>::addNode(T info) {
 
 template <typename T>
 void Graph<T>::rmNode(Node<T>* node) {
-    assert(node->outDegree == 0);
-    assert(node->inDegree == 0);
+    assert(node->outDegree() == 0);
+    assert(node->inDegree() == 0);
     node->mygraph->mynodes.erase(node->mykey);
 }
 

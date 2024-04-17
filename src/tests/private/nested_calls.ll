@@ -7,115 +7,115 @@ declare void @_sysy_starttime( i32 )
 declare void @_sysy_stoptime( i32 )
 define i32 @func1( i32 %r100, i32 %r102, i32 %r104 ) {
 bb31:
-  %r274 = add i32 0, 0
-  %r275 = add i32 %r100, 0
-  %r276 = add i32 0, 0
-  %r277 = add i32 %r102, 0
-  %r278 = add i32 0, 0
-  %r279 = add i32 %r104, 0
+  %r271 = add i32 0, 0
+  %r274 = add i32 %r100, 0
+  %r272 = add i32 0, 0
+  %r275 = add i32 %r102, 0
+  %r273 = add i32 0, 0
+  %r276 = add i32 %r104, 0
   br label %bb1
 
 bb1:
-  %r107 = icmp eq i32 %r279, 0
+  %r107 = icmp eq i32 %r276, 0
   br i1 %r107, label %bb2, label %bb3
 
 bb2:
-  %r282 = mul i32 %r275, %r277
-  ret i32 %r282
+  %r110 = mul i32 %r274, %r275
+  ret i32 %r110
 bb3:
-  %r280 = sub i32 %r277, %r279
-  %r281 = call i32 @func1(i32 %r275, i32 %r280, i32 0)
-  ret i32 %r281
+  %r114 = sub i32 %r275, %r276
+  %r115 = call i32 @func1(i32 %r274, i32 %r114, i32 0)
+  ret i32 %r115
 }
 
 define i32 @func2( i32 %r116, i32 %r118 ) {
 bb34:
-  %r285 = add i32 0, 0
-  %r286 = add i32 %r116, 0
-  %r287 = add i32 0, 0
-  %r288 = add i32 %r118, 0
+  %r277 = add i32 0, 0
+  %r279 = add i32 %r116, 0
+  %r278 = add i32 0, 0
+  %r280 = add i32 %r118, 0
   br label %bb5
 
 bb5:
-  %r121 = icmp ne i32 %r288, 0
+  %r121 = icmp ne i32 %r280, 0
   br i1 %r121, label %bb6, label %bb7
 
 bb6:
-  %r289 = sdiv i32 %r286, %r288
-  %r290 = mul i32 %r289, %r288
-  %r291 = sub i32 %r286, %r290
-  %r292 = call i32 @func2(i32 %r291, i32 0)
-  ret i32 %r292
+  %r125 = sdiv i32 %r279, %r280
+  %r127 = mul i32 %r125, %r280
+  %r128 = sub i32 %r279, %r127
+  %r129 = call i32 @func2(i32 %r128, i32 0)
+  ret i32 %r129
 bb7:
-  ret i32 %r286
+  ret i32 %r279
 }
 
 define i32 @func3( i32 %r131, i32 %r133 ) {
 bb37:
-  %r295 = add i32 0, 0
-  %r296 = add i32 %r131, 0
-  %r297 = add i32 0, 0
-  %r298 = add i32 %r133, 0
+  %r281 = add i32 0, 0
+  %r283 = add i32 %r131, 0
+  %r282 = add i32 0, 0
+  %r284 = add i32 %r133, 0
   br label %bb9
 
 bb9:
-  %r136 = icmp eq i32 %r298, 0
+  %r136 = icmp eq i32 %r284, 0
   br i1 %r136, label %bb10, label %bb11
 
 bb10:
-  %r301 = add i32 %r296, 1
-  ret i32 %r301
+  %r138 = add i32 %r283, 1
+  ret i32 %r138
 bb11:
-  %r299 = add i32 %r296, %r298
-  %r300 = call i32 @func3(i32 %r299, i32 0)
-  ret i32 %r300
+  %r141 = add i32 %r283, %r284
+  %r142 = call i32 @func3(i32 %r141, i32 0)
+  ret i32 %r142
 }
 
 define i32 @func4( i32 %r143, i32 %r145, i32 %r147 ) {
 bb40:
-  %r305 = add i32 0, 0
-  %r306 = add i32 %r143, 0
-  %r307 = add i32 0, 0
-  %r308 = add i32 %r145, 0
-  %r309 = add i32 0, 0
-  %r310 = add i32 %r147, 0
+  %r285 = add i32 0, 0
+  %r288 = add i32 %r143, 0
+  %r286 = add i32 0, 0
+  %r289 = add i32 %r145, 0
+  %r287 = add i32 0, 0
+  %r290 = add i32 %r147, 0
   br label %bb13
 
 bb13:
-  %r150 = icmp ne i32 %r306, 0
+  %r150 = icmp ne i32 %r288, 0
   br i1 %r150, label %bb14, label %bb15
 
 bb14:
-  ret i32 %r308
+  ret i32 %r289
 bb15:
-  ret i32 %r310
+  ret i32 %r290
 }
 
 define i32 @func5( i32 %r153 ) {
 bb43:
-  %r312 = add i32 0, 0
-  %r313 = add i32 %r153, 0
+  %r291 = add i32 0, 0
+  %r292 = add i32 %r153, 0
   br label %bb17
 
 bb17:
-  %r314 = sub i32 0, %r313
-  ret i32 %r314
+  %r155 = sub i32 0, %r292
+  ret i32 %r155
 }
 
 define i32 @func6( i32 %r157, i32 %r159 ) {
 bb44:
-  %r317 = add i32 0, 0
-  %r318 = add i32 %r157, 0
-  %r319 = add i32 0, 0
-  %r320 = add i32 %r159, 0
+  %r293 = add i32 0, 0
+  %r295 = add i32 %r157, 0
+  %r294 = add i32 0, 0
+  %r296 = add i32 %r159, 0
   br label %bb18
 
 bb18:
-  %r162 = icmp ne i32 %r318, 0
+  %r162 = icmp ne i32 %r295, 0
   br i1 %r162, label %bb22, label %bb20
 
 bb22:
-  %r164 = icmp ne i32 %r320, 0
+  %r164 = icmp ne i32 %r296, 0
   br i1 %r164, label %bb19, label %bb20
 
 bb19:
@@ -126,12 +126,12 @@ bb20:
 
 define i32 @func7( i32 %r165 ) {
 bb47:
-  %r322 = add i32 0, 0
-  %r323 = add i32 %r165, 0
+  %r297 = add i32 0, 0
+  %r298 = add i32 %r165, 0
   br label %bb23
 
 bb23:
-  %r168 = icmp ne i32 %r323, 0
+  %r168 = icmp ne i32 %r298, 0
   br i1 %r168, label %bb25, label %bb24
 
 bb24:
@@ -142,109 +142,109 @@ bb25:
 
 define i32 @main( ) {
 bb27:
-  %r330 = add i32 0, 0
+  %r299 = add i32 0, 0
   call void @_sysy_starttime(i32 97)
-  %r331 = add i32 0, 0
-  %r332 = call i32 @getint()
-  %r333 = add i32 0, 0
-  %r334 = call i32 @getint()
-  %r335 = add i32 0, 0
-  %r336 = call i32 @getint()
-  %r337 = add i32 0, 0
-  %r338 = call i32 @getint()
+  %r300 = add i32 0, 0
+  %r305 = call i32 @getint()
+  %r301 = add i32 0, 0
+  %r306 = call i32 @getint()
+  %r302 = add i32 0, 0
+  %r307 = call i32 @getint()
+  %r303 = add i32 0, 0
+  %r308 = call i32 @getint()
   %r177 = alloca [ 10 x i32 ]
-  %r339 = add i32 0, 0
-  %r340 = add i32 0, 0
+  %r304 = add i32 0, 0
+  %r309 = add i32 0, 0
   br label %bb28
 
 bb28:
-  %r341 = phi i32 [ %r340, %bb27 ], [ %r397, %bb29 ]
-  %r180 = icmp slt i32 %r341, 10
+  %r310 = phi i32 [ %r309, %bb27 ], [ %r312, %bb29 ]
+  %r180 = icmp slt i32 %r310, 10
   br i1 %r180, label %bb29, label %bb30
 
 bb29:
-  %r396 = call i32 @getint()
-  %r183 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 %r341
-  store i32 %r396, i32* %r183
-  %r397 = add i32 %r341, 1
+  %r181 = call i32 @getint()
+  %r183 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 %r310
+  store i32 %r181, i32* %r183
+  %r312 = add i32 %r310, 1
   br label %bb28
 
 bb30:
-  %r342 = call i32 @func7(i32 %r332)
-  %r343 = call i32 @func5(i32 %r334)
-  %r344 = call i32 @func6(i32 %r342, i32 %r343)
-  %r345 = call i32 @func2(i32 %r344, i32 %r336)
-  %r346 = call i32 @func3(i32 %r345, i32 %r338)
-  %r347 = call i32 @func5(i32 %r346)
+  %r188 = call i32 @func7(i32 %r305)
+  %r190 = call i32 @func5(i32 %r306)
+  %r191 = call i32 @func6(i32 %r188, i32 %r190)
+  %r193 = call i32 @func2(i32 %r191, i32 %r307)
+  %r195 = call i32 @func3(i32 %r193, i32 %r308)
+  %r196 = call i32 @func5(i32 %r195)
   %r197 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 0
-  %r348 = load i32, i32* %r197
+  %r198 = load i32, i32* %r197
   %r199 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 1
-  %r349 = load i32, i32* %r199
-  %r350 = call i32 @func5(i32 %r349)
+  %r200 = load i32, i32* %r199
+  %r201 = call i32 @func5(i32 %r200)
   %r202 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 2
-  %r351 = load i32, i32* %r202
+  %r203 = load i32, i32* %r202
   %r204 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 3
-  %r352 = load i32, i32* %r204
-  %r353 = call i32 @func7(i32 %r352)
-  %r354 = call i32 @func6(i32 %r351, i32 %r353)
+  %r205 = load i32, i32* %r204
+  %r206 = call i32 @func7(i32 %r205)
+  %r207 = call i32 @func6(i32 %r203, i32 %r206)
   %r208 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 4
-  %r355 = load i32, i32* %r208
+  %r209 = load i32, i32* %r208
   %r210 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 5
-  %r356 = load i32, i32* %r210
-  %r357 = call i32 @func7(i32 %r356)
-  %r358 = call i32 @func2(i32 %r355, i32 %r357)
-  %r359 = call i32 @func4(i32 %r350, i32 %r354, i32 %r358)
+  %r211 = load i32, i32* %r210
+  %r212 = call i32 @func7(i32 %r211)
+  %r213 = call i32 @func2(i32 %r209, i32 %r212)
+  %r214 = call i32 @func4(i32 %r201, i32 %r207, i32 %r213)
   %r215 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 6
-  %r360 = load i32, i32* %r215
-  %r361 = call i32 @func3(i32 %r359, i32 %r360)
+  %r216 = load i32, i32* %r215
+  %r217 = call i32 @func3(i32 %r214, i32 %r216)
   %r218 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 7
-  %r362 = load i32, i32* %r218
-  %r363 = call i32 @func2(i32 %r361, i32 %r362)
+  %r219 = load i32, i32* %r218
+  %r220 = call i32 @func2(i32 %r217, i32 %r219)
   %r221 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 8
-  %r364 = load i32, i32* %r221
+  %r222 = load i32, i32* %r221
   %r223 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 9
-  %r365 = load i32, i32* %r223
-  %r366 = call i32 @func7(i32 %r365)
-  %r367 = call i32 @func3(i32 %r364, i32 %r366)
-  %r368 = call i32 @func1(i32 %r363, i32 %r367, i32 %r332)
-  %r369 = call i32 @func4(i32 %r347, i32 %r348, i32 %r368)
-  %r370 = call i32 @func7(i32 %r336)
-  %r371 = call i32 @func3(i32 %r370, i32 %r338)
-  %r372 = call i32 @func2(i32 %r334, i32 %r371)
-  %r373 = call i32 @func3(i32 %r369, i32 %r372)
+  %r224 = load i32, i32* %r223
+  %r225 = call i32 @func7(i32 %r224)
+  %r226 = call i32 @func3(i32 %r222, i32 %r225)
+  %r228 = call i32 @func1(i32 %r220, i32 %r226, i32 %r305)
+  %r229 = call i32 @func4(i32 %r196, i32 %r198, i32 %r228)
+  %r232 = call i32 @func7(i32 %r307)
+  %r234 = call i32 @func3(i32 %r232, i32 %r308)
+  %r235 = call i32 @func2(i32 %r306, i32 %r234)
+  %r236 = call i32 @func3(i32 %r229, i32 %r235)
   %r237 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 0
-  %r374 = load i32, i32* %r237
+  %r238 = load i32, i32* %r237
   %r239 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 1
-  %r375 = load i32, i32* %r239
-  %r376 = call i32 @func1(i32 %r373, i32 %r374, i32 %r375)
+  %r240 = load i32, i32* %r239
+  %r241 = call i32 @func1(i32 %r236, i32 %r238, i32 %r240)
   %r242 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 2
-  %r377 = load i32, i32* %r242
-  %r378 = call i32 @func2(i32 %r376, i32 %r377)
+  %r243 = load i32, i32* %r242
+  %r244 = call i32 @func2(i32 %r241, i32 %r243)
   %r245 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 3
-  %r379 = load i32, i32* %r245
+  %r246 = load i32, i32* %r245
   %r247 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 4
-  %r380 = load i32, i32* %r247
+  %r248 = load i32, i32* %r247
   %r249 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 5
-  %r381 = load i32, i32* %r249
-  %r382 = call i32 @func5(i32 %r381)
-  %r383 = call i32 @func3(i32 %r380, i32 %r382)
+  %r250 = load i32, i32* %r249
+  %r251 = call i32 @func5(i32 %r250)
+  %r252 = call i32 @func3(i32 %r248, i32 %r251)
   %r253 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 6
-  %r384 = load i32, i32* %r253
-  %r385 = call i32 @func5(i32 %r384)
-  %r386 = call i32 @func2(i32 %r383, i32 %r385)
+  %r254 = load i32, i32* %r253
+  %r255 = call i32 @func5(i32 %r254)
+  %r256 = call i32 @func2(i32 %r252, i32 %r255)
   %r257 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 7
-  %r387 = load i32, i32* %r257
+  %r258 = load i32, i32* %r257
   %r259 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 8
-  %r388 = load i32, i32* %r259
-  %r389 = call i32 @func7(i32 %r388)
-  %r390 = call i32 @func1(i32 %r386, i32 %r387, i32 %r389)
+  %r260 = load i32, i32* %r259
+  %r261 = call i32 @func7(i32 %r260)
+  %r262 = call i32 @func1(i32 %r256, i32 %r258, i32 %r261)
   %r263 = getelementptr [10 x i32 ], [10 x i32 ]* %r177, i32 0, i32 9
-  %r391 = load i32, i32* %r263
-  %r392 = call i32 @func5(i32 %r391)
-  %r393 = call i32 @func2(i32 %r390, i32 %r392)
-  %r394 = call i32 @func3(i32 %r393, i32 %r332)
-  %r395 = call i32 @func1(i32 %r378, i32 %r379, i32 %r394)
+  %r264 = load i32, i32* %r263
+  %r265 = call i32 @func5(i32 %r264)
+  %r266 = call i32 @func2(i32 %r262, i32 %r265)
+  %r268 = call i32 @func3(i32 %r266, i32 %r305)
+  %r311 = call i32 @func1(i32 %r244, i32 %r246, i32 %r268)
   call void @_sysy_stoptime(i32 117)
-  ret i32 %r395
+  ret i32 %r311
 }
 
