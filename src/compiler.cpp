@@ -28,6 +28,7 @@ int main(int argc, char * argv[]) {
     line = 1;
     col = 1;
     
+    cout <<  argv[2] << ": ";
     freopen(argv[1], "r", stdin);  
     ofstream ASTStream;
     ASTStream.open(argv[2]);
@@ -39,6 +40,7 @@ int main(int argc, char * argv[]) {
     ASTStream.close();
 
     check_Prog(std::cout, aroot);
+
 
     return 0;
 }
