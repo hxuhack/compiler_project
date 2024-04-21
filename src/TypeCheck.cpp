@@ -165,6 +165,9 @@ void check_VarDecl(std::ostream& out, aA_varDeclStmt vd)
                 (!local_token2Type.empty() && local_token2Type.back()->find(name) != local_token2Type.back()->end())) {
                 error_print(out, vdecl->pos, "Variable name conflict: " + name);
             }
+            else if(!check_struct_declared(vdecl)){
+                error_print(out, vdecl->pos, "Struct not defined.");
+            }
             else {
                 varType->type = vdecl->u.declScalar->type;
                 varType->isVarArrFunc = 0;
@@ -760,4 +763,24 @@ tc_type check_rightVal(std::ostream &out, aA_rightVal rightVal)
         return check_ArithExpr(out, rightVal->u.arithExpr);
     }
     return nullptr;
+}
+
+
+bool check_struct_declared(aA_varDecl varDecl) {   //检查声明的struct是否存在
+    if(varDecl->kind == A_varDeclType::A_varDeclScalarKind){
+        if(varDecl->u.declScalar->type->type == A_dataType::A_structTypeKind){
+            if(struct2Members.find(*(varDecl->u.declScalar->type->u.structType)) == struct2Members.end()){
+                return false;
+            }
+        }
+        return true;
+    }
+    else if(varDecl->kind == A_varDeclType::A_varDeclArrayKind){
+        if(varDecl->u.declArray->type->type == A_dataType::A_structTypeKind){
+            if(struct2Members.find(*(varDecl->u.declArray->type->u.structType)) == struct2Members.end()){
+                return false;
+            }
+        }
+        return true;
+    }
 }
