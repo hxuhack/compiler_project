@@ -8,10 +8,11 @@
 #include "llvm_ir.h"
 #include "ast2llvm.h"
 #include "printLLVM.h"
+#include "llvm2asm.h"
+#include "printASM.h"
 #include "ssa.h"
 #include "graph.hpp"
 #include "bg_llvm.h"
-
 #define YACCDEBUG 0
 
 using namespace std;
@@ -58,12 +59,18 @@ int main(int argc, char * argv[]) {
 
     ofstream LLVMStream;
     LLVMStream.open(file_name + ".ll");
-    auto prog = ast2llvm(aroot);
-    prog=SSA(prog);
-    printL_prog(LLVMStream,prog);
-    
+    auto l_prog = ast2llvm(aroot);
+    l_prog=SSA(l_prog);
+    printL_prog(LLVMStream,l_prog);
     LLVMStream.close();
-    printf("exit\n");
+
+    ofstream ASMStream;
+    ASMStream.open(file_name + ".S");
+    auto as_prog = llvm2asm(*l_prog);
+
+    printAS_prog(ASMStream,as_prog);
+    ASMStream.close();
+
     return 0;
 }
 

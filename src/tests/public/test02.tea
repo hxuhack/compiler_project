@@ -1,0 +1,34 @@
+struct Node {
+    l:int,
+    r:int
+}
+
+fn foo(c:Node) {
+    c.l = getint();
+    c.r = getint();
+    ret;
+}
+
+fn baz(c[10]:Node) {
+    c[2].l = getint();
+    c[2].r = getint();
+    ret;
+}
+
+let d:Node;
+let e[10]:Node;
+
+fn main()->int{
+    _sysy_starttime(13);
+    let c:Node;
+    c.l = 1;
+    c.r = 2;
+    foo(c);
+    foo(d);
+    baz(e);
+    putint(c.l+c.r);
+    putint(d.l+d.r);
+    putint(e[2].l+e[2].r);
+    _sysy_stoptime(19);
+    ret 0;
+}
