@@ -5,7 +5,7 @@
 #include "y.tab.hpp"
 extern int line, col;
 int c;
-int calc(char *s, int len);
+int calc(const char *s, int len);
 %}
 
 // TODO:
@@ -26,7 +26,7 @@ int calc(char *s, int len);
 %%
 
 // This function takes a string of digits and its length as input, and returns the integer value of the string.
-int calc(char *s, int len) {
+int calc(const char *s, int len) {
     int ret = 0;
     for(int i = 0; i < len; i++)
         ret = ret * 10 + (s[i] - '0');
