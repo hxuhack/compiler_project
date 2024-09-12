@@ -39,6 +39,20 @@ $ lex --version # 查看版本，若出现版本信息则说明安装成功
 $ yacc --version # 查看版本，若出现版本信息则说明安装成功    
 ```
 
+本实验的`Makefile`中选择`clang`为编译器，因此没有安装`clang`的同学需要先安装`clang`（后续实验还会用到`llvm`因此在这里一并给出安装的指令）：
+
+```shell
+$ sudo apt-get install llvm
+$ sudo apt-get install clang
+```
+
+安装完成后可以通过以下命令进行测试：
+
+```shell
+$ clang -v # 查看版本，若出现版本信息则说明安装成功
+$ lli --version # 查看版本，若出现版本信息则说明安装成功
+```
+
 ## Step 1   确定终结符、非终结符 、token
 
 根据文法，可以确定终结符与非终结符。对于上述文法，一位数字、字母和运算符是终结符，`identifier`、`number`和`expr`是非终结符。
