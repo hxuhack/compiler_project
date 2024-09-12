@@ -24,7 +24,7 @@ expr -> number | identifier | (expr + expr) | (expr * expr)
 
 ## Step 0 环境配置
 
-这里默认大家已经有一个Ubuntu环境，打开终端，执行以下命令：
+这里默认大家已经有一个Ubuntu环境（**注意：使用Mac Apple Silicon芯片（M1，M2，M3，M4）的同学建议在docker中配置Ubuntu环境，具体方法可以参考[张涵星助教写的文档](Docker使用.pdf)**），打开终端，执行以下命令：
 
 ```shell
 $ sudo apt-get install flex bison
