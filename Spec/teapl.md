@@ -69,7 +69,7 @@ let b:int = 0; // declare a variable of int and init it with value 0.
 **One-level Array**
 
 ```
-let c[10]:int; // declear a variable of integer array.
+let c[10]:int; // declear a variable of integer array; the type field can be ignored.
 let d[10]:int = {0}; // declear a variable of integer array and initialize it with zero.
 ```
 
@@ -96,7 +96,8 @@ struct MyStruct {
 
 The grammar is defined as follows.
  ```
-structDef := < struct > id < { > (varDecl) (< , > varDecl)* < } >
+fieldDecl := id < : > type |  id < [ > num < ] >< : > type
+structDef := < struct > id < { > (fieldDecl) (< , > fieldDecl)* < } >
  ```
 
 ### Function Declaration and Definition
