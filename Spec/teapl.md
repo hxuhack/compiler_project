@@ -35,7 +35,7 @@ arithUOp := < - >
 
 ```
 boolExpr := boolExpr boolBiOp boolExpr | boolUnit
-boolUnit := exprUnit comOp exprUnit | < ( > boolExpr < ) > | boolUOp boolUnit // we restrict the operands of comparison operators to be exprUnit instead of rightVal to avoid confusing the precedence.
+boolUnit := < ( > exprUnit comOp exprUnit < ) > | < ( > boolExpr < ) > | boolUOp boolUnit // we restrict the operands of comparison operators to be exprUnit instead of rightVal to avoid confusing the precedence.
 boolBiOp := < && > | < || >
 boolUOp := < ! >
 comOp := < > > | < < > | < >= > | < <= > | < == > | < != >
@@ -47,7 +47,7 @@ We restrict neither the left value nor right value can be assignments.
 ```
 assignStmt := leftVal < = > rightVal < ; >  
 leftVal := id | leftVal < [ > id | num < ] > | leftVal < . > id
-rightVal := arithExpr | boolExpr
+rightVal := arithExpr
 ```
 
 **Function Call**
@@ -160,7 +160,8 @@ if (x >0) {
 
 Besides, we restrict the condition expression to be explicit logical operations, e.g., x >0; we donot allow implicit expressions like x, which means.  We define the grammar as follows.
 ```
-ifStmt := < if > < ( > boolExpr < ) > codeBlock ( < else > codeBlock | ϵ )
+boolUnit_ := < ( > exprUnit comOp exprUnit < ) > | < ( > boolExpr < ) > | < ( > boolUOp boolUnit < ) >
+ifStmt := < if > boolUnit_ codeBlock ( < else > codeBlock | ϵ )
 ```
 
 **While Statemet**
@@ -177,7 +178,7 @@ while (x  > 0) {
 Definition:
 
 ```
-whileStmt := < while > < ( > boolExpr < ) > codeBlock
+whileStmt := < while > boolUnit_ codeBlock
 ```
 
 ### Code Comments 
