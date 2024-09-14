@@ -18,7 +18,8 @@ id := [a-z_A-Z][a-z_A-Z0-9]*
 
 TeaPL allows integers, e.g., 123
 ```
-num := [1-9][0-9]* | 0
+unum := [1-9][0-9]* | 0
+num := unum | < - > unum
 ```
 
 **Arithmatic Expressions**
@@ -26,9 +27,8 @@ An expression is a composd of identifiers, values,  and operators, e.g., 1+2, a*
 
 ```
 arithExpr := arithExpr arithBiOp arithExpr | exprUnit
-exprUnit :=  num | id | < ( > arithExpr < ) > | fnCall | leftVal < [ > id | num < ] > | leftVal < . > id | arithUOp exprUnit
+exprUnit :=  num | id | < ( > arithExpr < ) > | fnCall | leftVal < [ > id | num < ] > | leftVal < . > id
 arithBiOp := < + > | < - > | < * > | < / >
-arithUOp := < - >
 ```
 
 **Condition Expressions**
