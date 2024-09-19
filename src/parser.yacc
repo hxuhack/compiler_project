@@ -18,6 +18,9 @@ extern int  yywrap();
 
 %union {
   A_pos pos;
+  A_tokenId tokenId;
+  A_tokenNum tokenNum;
+  A_type type;
   A_program program;
   A_programElementList programElementList;
   A_programElement programElement;
