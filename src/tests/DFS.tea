@@ -13,7 +13,7 @@ fn quickread()->int{
 		ch = getch();
 	}
 	if ((f != 0)){
-		ret -x;
+		ret 0-x;
 	}else{
 		ret x;
 	}
@@ -62,7 +62,7 @@ fn same(x:int, tar:int)->int{
 	let i:int = head[x];
 	while (i != -1){
 		let y:int = to[i];
-		if (vis[y]==0 && same(y,tar) != 0){
+		if ((vis[y]==0) && (same(y,tar) != 0)){
 			ret 1;
 		}
 		i = next[i];
@@ -78,7 +78,7 @@ fn main()->int{
 	let y:int = 0;
 	while (m != 0){
 		ch = getch();
-		while (ch != 81 && ch != 85){
+		while ((ch != 81) && (ch != 85)){
 			ch = getch();
 		}
 		if (ch == 81){ // query

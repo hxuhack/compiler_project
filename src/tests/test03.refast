@@ -24,11 +24,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit 10)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit 10)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -97,11 +96,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit 10)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit 10)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 

@@ -395,7 +395,7 @@ struct A_fnDef_ {
 // }
 struct A_ifStmt_ {
     A_pos pos;
-    A_boolExpr boolExpr;
+    A_boolUnit boolUnit;
     A_codeBlockStmtList ifStmts, elseStmts;
 };
 
@@ -404,7 +404,7 @@ struct A_ifStmt_ {
 // }
 struct A_whileStmt_ {
     A_pos pos;
-    A_boolExpr boolExpr;
+    A_boolUnit boolUnit;
     A_codeBlockStmtList whileStmts;
 };
 
@@ -539,8 +539,8 @@ A_fnDecl A_FnDecl(A_pos pos, char* id, A_paramDecl paramDecl, A_type type);
 A_paramDecl A_ParamDecl(A_varDeclList varDecls);
 A_codeBlockStmtList A_CodeBlockStmtList(A_codeBlockStmt head, A_codeBlockStmtList tail);
 A_fnDef A_FnDef(A_pos pos, A_fnDecl fnDecl, A_codeBlockStmtList stmts);
-A_ifStmt A_IfStmt(A_pos pos, A_boolExpr boolExpr, A_codeBlockStmtList ifStmts, A_codeBlockStmtList elseStmts);
-A_whileStmt A_WhileStmt(A_pos pos, A_boolExpr boolExpr, A_codeBlockStmtList whileStmts);
+A_ifStmt A_IfStmt(A_pos pos, A_boolUnit boolUnit, A_codeBlockStmtList ifStmts, A_codeBlockStmtList elseStmts);
+A_whileStmt A_WhileStmt(A_pos pos, A_boolUnit boolUnit, A_codeBlockStmtList whileStmts);
 A_callStmt A_CallStmt(A_pos pos, A_fnCall fnCall);
 A_returnStmt A_ReturnStmt(A_pos pos, A_rightVal retVal);
 A_codeBlockStmt A_BlockNullStmt(A_pos pos);

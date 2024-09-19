@@ -48,37 +48,35 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit (
-									|--A_arithExpr 
-										|--A_arithBiOpExpr 
-											|--A_arithExpr 
-												|--A_exprUnit n+
-											|--A_arithExpr 
-												|--A_exprUnit 1))){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit (
+								|--A_arithExpr 
+									|--A_arithBiOpExpr 
+										|--A_arithExpr 
+											|--A_exprUnit n+
+										|--A_arithExpr 
+											|--A_exprUnit 1))){
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit (
-											|--A_arithExpr 
-												|--A_arithBiOpExpr 
-													|--A_arithExpr 
-														|--A_exprUnit (
-															|--A_arithExpr 
-																|--A_arithBiOpExpr 
-																	|--A_arithExpr 
-																		|--A_exprUnit n/
-																	|--A_arithExpr 
-																		|--A_exprUnit i)*
-													|--A_arithExpr 
-														|--A_exprUnit i)==
-										|--A_exprUnit n)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit (
+										|--A_arithExpr 
+											|--A_arithBiOpExpr 
+												|--A_arithExpr 
+													|--A_exprUnit (
+														|--A_arithExpr 
+															|--A_arithBiOpExpr 
+																|--A_arithExpr 
+																	|--A_exprUnit n/
+																|--A_arithExpr 
+																	|--A_exprUnit i)*
+												|--A_arithExpr 
+													|--A_exprUnit i)==
+									|--A_exprUnit n)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 

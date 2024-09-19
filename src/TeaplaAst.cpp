@@ -401,7 +401,7 @@ aA_ifStmt aA_IfStmt(A_ifStmt ifStmt){
     if(!ifStmt) return nullptr;
     aA_ifStmt p = new aA_ifStmt_;
     p->pos = ifStmt->pos;
-    p->boolExpr = aA_BoolExpr(ifStmt->boolExpr);
+    p->boolUnit = aA_BoolUnit(ifStmt->boolUnit);
     for(A_codeBlockStmtList l=ifStmt->ifStmts; l; l=l->tail){
         p->ifStmts.emplace_back(aA_CodeBlockStmt(l->head));
     }
@@ -415,7 +415,7 @@ aA_whileStmt aA_WhileStmt(A_whileStmt whileStmt){
     if(!whileStmt) return nullptr;
     aA_whileStmt p = new aA_whileStmt_;
     p->pos = whileStmt->pos;
-    p->boolExpr = aA_BoolExpr(whileStmt->boolExpr);
+    p->boolUnit = aA_BoolUnit(whileStmt->boolUnit);
     for(A_codeBlockStmtList l=whileStmt->whileStmts; l; l=l->tail){
         p->whileStmts.emplace_back(aA_CodeBlockStmt(l->head));
     }

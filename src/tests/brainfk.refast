@@ -64,11 +64,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit len)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit len)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -135,14 +134,13 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit 
-									|--A_arrayExpr 
-									|--A_leftVal input[
-										|--A_indexExpr i]!=
-								|--A_exprUnit 0)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit 
+								|--A_arrayExpr 
+								|--A_leftVal input[
+									|--A_indexExpr i]!=
+							|--A_exprUnit 0)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -156,11 +154,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit cur_char==
-										|--A_exprUnit 62)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit cur_char==
+									|--A_exprUnit 62)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 
@@ -176,11 +173,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit cur_char==
-										|--A_exprUnit 60)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit cur_char==
+									|--A_exprUnit 60)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 
@@ -196,11 +192,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit cur_char==
-										|--A_exprUnit 43)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit cur_char==
+									|--A_exprUnit 43)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 
@@ -222,11 +217,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit cur_char==
-										|--A_exprUnit 45)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit cur_char==
+									|--A_exprUnit 45)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 
@@ -248,11 +242,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit cur_char==
-										|--A_exprUnit 46)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit cur_char==
+									|--A_exprUnit 46)){
 
 							|--A_codeBlockStmt 
 								|--A_callStmt 
@@ -267,11 +260,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit cur_char==
-										|--A_exprUnit 44)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit cur_char==
+									|--A_exprUnit 44)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 
@@ -287,21 +279,22 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_ifStmt if(
-							|--A_boolExpr 
-								|--A_boolBiOpExpr 
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit cur_char==
-												|--A_exprUnit 93)&&
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit 
-													|--A_arrayExpr 
-													|--A_leftVal tape[
-														|--A_indexExpr ptr]!=
-												|--A_exprUnit 0)){
+							|--A_boolUnit (
+								|--A_boolExpr 
+									|--A_boolBiOpExpr 
+										|--A_boolExpr 
+											|--A_boolUnit (
+												|--A_comExpr 
+													|--A_exprUnit cur_char==
+													|--A_exprUnit 93)&&
+										|--A_boolExpr 
+											|--A_boolUnit (
+												|--A_comExpr 
+													|--A_exprUnit 
+														|--A_arrayExpr 
+														|--A_leftVal tape[
+															|--A_indexExpr ptr]!=
+													|--A_exprUnit 0))){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 
@@ -312,11 +305,10 @@ A_program
 
 							|--A_codeBlockStmt 
 								|--A_whileStmt while(
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit loop>
-												|--A_exprUnit 0)){
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit loop>
+											|--A_exprUnit 0)){
 
 									|--A_codeBlockStmt 
 										|--A_assignStmt 
@@ -341,11 +333,10 @@ A_program
 
 									|--A_codeBlockStmt 
 										|--A_ifStmt if(
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit cur_char==
-														|--A_exprUnit 91)){
+											|--A_boolUnit (
+												|--A_comExpr 
+													|--A_exprUnit cur_char==
+													|--A_exprUnit 91)){
 
 											|--A_codeBlockStmt 
 												|--A_assignStmt 
@@ -361,11 +352,10 @@ A_program
 
 									|--A_codeBlockStmt 
 										|--A_ifStmt if(
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit cur_char==
-														|--A_exprUnit 93)){
+											|--A_boolUnit (
+												|--A_comExpr 
+													|--A_exprUnit cur_char==
+													|--A_exprUnit 93)){
 
 											|--A_codeBlockStmt 
 												|--A_assignStmt 

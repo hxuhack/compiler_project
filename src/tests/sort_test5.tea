@@ -13,7 +13,7 @@ fn heap_ajust(arr[10]:int, start:int, end:int)->int {
     son = dad * 2 + 1;  
     while (son < (end + 1)) { //   
         let temp:int = son + 1;
-        if (son < end && arr[son] < arr[temp])
+        if ((son < end) && (arr[son] < arr[temp]))
             {son = son + 1;  }
         if (arr[dad] > arr[son])
             {ret 0;}  

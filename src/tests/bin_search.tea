@@ -20,7 +20,7 @@ fn main()->int
     high=n-1;
     low=0;
     mid=(high+low)/2;
-    while(a[mid]!=x && low < high)
+    while((a[mid]!=x) && (low < high))
     {
         mid=(high+low)/2;
         if(x<a[mid])

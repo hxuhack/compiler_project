@@ -84,11 +84,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<=
-								|--A_exprUnit n)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<=
+							|--A_exprUnit n)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -149,17 +148,16 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<=
-								|--A_exprUnit (
-									|--A_arithExpr 
-										|--A_arithBiOpExpr 
-											|--A_arithExpr 
-												|--A_exprUnit n-
-											|--A_arithExpr 
-												|--A_exprUnit 1))){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<=
+							|--A_exprUnit (
+								|--A_arithExpr 
+									|--A_arithBiOpExpr 
+										|--A_arithExpr 
+											|--A_exprUnit n-
+										|--A_arithExpr 
+											|--A_exprUnit 1))){
 
 					|--A_codeBlockStmt 
 						|--A_varDeclStmt let 
@@ -190,32 +188,32 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_whileStmt while(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit k<=
-										|--A_exprUnit n)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit k<=
+									|--A_exprUnit n)){
 
 							|--A_codeBlockStmt 
 								|--A_ifStmt if(
-									|--A_boolExpr 
-										|--A_boolBiOpExpr 
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit min_num>
-														|--A_exprUnit 
-															|--A_arrayExpr 
-															|--A_leftVal dis[
-																|--A_indexExpr k])&&
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit 
-															|--A_arrayExpr 
-															|--A_leftVal book[
-																|--A_indexExpr k]==
-														|--A_exprUnit 0)){
+									|--A_boolUnit (
+										|--A_boolExpr 
+											|--A_boolBiOpExpr 
+												|--A_boolExpr 
+													|--A_boolUnit (
+														|--A_comExpr 
+															|--A_exprUnit min_num>
+															|--A_exprUnit 
+																|--A_arrayExpr 
+																|--A_leftVal dis[
+																	|--A_indexExpr k])&&
+												|--A_boolExpr 
+													|--A_boolUnit (
+														|--A_comExpr 
+															|--A_exprUnit 
+																|--A_arrayExpr 
+																|--A_leftVal book[
+																	|--A_indexExpr k]==
+															|--A_exprUnit 0))){
 
 									|--A_codeBlockStmt 
 										|--A_assignStmt 
@@ -268,55 +266,52 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_whileStmt while(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit j<=
-										|--A_exprUnit n)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit j<=
+									|--A_exprUnit n)){
 
 							|--A_codeBlockStmt 
 								|--A_ifStmt if(
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit 
-													|--A_arrayExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit 
+												|--A_arrayExpr 
+												|--A_leftVal 
+													|--A_memberExpr 
 													|--A_leftVal 
-														|--A_memberExpr 
-														|--A_leftVal 
-															|--A_arrayExpr 
-															|--A_leftVal e[
-																|--A_indexExpr min_index].a[
-														|--A_indexExpr j]<
-												|--A_exprUnit INF)){
+														|--A_arrayExpr 
+														|--A_leftVal e[
+															|--A_indexExpr min_index].a[
+													|--A_indexExpr j]<
+											|--A_exprUnit INF)){
 
 									|--A_codeBlockStmt 
 										|--A_ifStmt if(
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit 
-															|--A_arrayExpr 
-															|--A_leftVal dis[
-																|--A_indexExpr j]>
-														|--A_exprUnit (
-															|--A_arithExpr 
-																|--A_arithBiOpExpr 
-																	|--A_arithExpr 
-																		|--A_exprUnit 
-																			|--A_arrayExpr 
-																			|--A_leftVal dis[
-																				|--A_indexExpr min_index]+
-																	|--A_arithExpr 
-																		|--A_exprUnit 
-																			|--A_arrayExpr 
+											|--A_boolUnit (
+												|--A_comExpr 
+													|--A_exprUnit 
+														|--A_arrayExpr 
+														|--A_leftVal dis[
+															|--A_indexExpr j]>
+													|--A_exprUnit (
+														|--A_arithExpr 
+															|--A_arithBiOpExpr 
+																|--A_arithExpr 
+																	|--A_exprUnit 
+																		|--A_arrayExpr 
+																		|--A_leftVal dis[
+																			|--A_indexExpr min_index]+
+																|--A_arithExpr 
+																	|--A_exprUnit 
+																		|--A_arrayExpr 
+																		|--A_leftVal 
+																			|--A_memberExpr 
 																			|--A_leftVal 
-																				|--A_memberExpr 
-																				|--A_leftVal 
-																					|--A_arrayExpr 
-																					|--A_leftVal e[
-																						|--A_indexExpr min_index].a[
-																				|--A_indexExpr j]))){
+																				|--A_arrayExpr 
+																				|--A_leftVal e[
+																					|--A_indexExpr min_index].a[
+																			|--A_indexExpr j]))){
 
 											|--A_codeBlockStmt 
 												|--A_assignStmt 
@@ -407,11 +402,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<=
-								|--A_exprUnit n)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<=
+							|--A_exprUnit n)){
 
 					|--A_codeBlockStmt 
 						|--A_varDeclStmt let 
@@ -424,19 +418,17 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_whileStmt while(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit j<=
-										|--A_exprUnit n)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit j<=
+									|--A_exprUnit n)){
 
 							|--A_codeBlockStmt 
 								|--A_ifStmt if(
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit i==
-												|--A_exprUnit j)){
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit i==
+											|--A_exprUnit j)){
 
 									|--A_codeBlockStmt 
 										|--A_assignStmt 
@@ -503,11 +495,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<=
-								|--A_exprUnit m)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<=
+							|--A_exprUnit m)){
 
 					|--A_codeBlockStmt 
 						|--A_varDeclStmt let 
@@ -570,11 +561,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<=
-								|--A_exprUnit n)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<=
+							|--A_exprUnit n)){
 
 					|--A_codeBlockStmt 
 						|--A_callStmt 

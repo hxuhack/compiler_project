@@ -13,18 +13,19 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_ifStmt if(
-					|--A_boolExpr 
-						|--A_boolBiOpExpr 
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit m==
-										|--A_exprUnit 1)||
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit n==
-										|--A_exprUnit 1)){
+					|--A_boolUnit (
+						|--A_boolExpr 
+							|--A_boolBiOpExpr 
+								|--A_boolExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit m==
+											|--A_exprUnit 1)||
+								|--A_boolExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit n==
+											|--A_exprUnit 1))){
 
 					|--A_codeBlockStmt 
 						|--A_returnStmt ret 
@@ -78,11 +79,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit m)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit m)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -134,11 +134,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit n)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit n)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -196,13 +195,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i>
-								|--A_exprUnit 
-									|--A_arithUExpr -
-										|--A_exprUnit 1)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i>
+							|--A_exprUnit -1)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -217,13 +213,10 @@ A_program
 
 					|--A_codeBlockStmt 
 						|--A_whileStmt while(
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit j>
-										|--A_exprUnit 
-											|--A_arithUExpr -
-												|--A_exprUnit 1)){
+							|--A_boolUnit (
+								|--A_comExpr 
+									|--A_exprUnit j>
+									|--A_exprUnit -1)){
 
 							|--A_codeBlockStmt 
 								|--A_assignStmt 

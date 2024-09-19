@@ -418,19 +418,19 @@ A_fnDef A_FnDef(A_pos pos, A_fnDecl fnDecl, A_codeBlockStmtList stmts){
     return p;
 }
 
-A_ifStmt A_IfStmt(A_pos pos, A_boolExpr boolExpr, A_codeBlockStmtList ifStmts, A_codeBlockStmtList elseStmts){
+A_ifStmt A_IfStmt(A_pos pos, A_boolUnit boolUnit, A_codeBlockStmtList ifStmts, A_codeBlockStmtList elseStmts){
     A_ifStmt p = (A_ifStmt)malloc(sizeof(*p));
     p->pos = pos;
-    p->boolExpr = boolExpr;
+    p->boolUnit = boolUnit;
     p->ifStmts = ifStmts;
     p->elseStmts = elseStmts;
     return p;
 }
 
-A_whileStmt A_WhileStmt(A_pos pos, A_boolExpr boolExpr, A_codeBlockStmtList whileStmts){
+A_whileStmt A_WhileStmt(A_pos pos, A_boolUnit boolUnit, A_codeBlockStmtList whileStmts){
     A_whileStmt p = (A_whileStmt)malloc(sizeof(*p));
     p->pos = pos;
-    p->boolExpr = boolExpr;
+    p->boolUnit = boolUnit;
     p->whileStmts = whileStmts;
     return p;
 }

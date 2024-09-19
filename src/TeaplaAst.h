@@ -261,13 +261,13 @@ struct aA_fnDef_ {
 
 struct aA_ifStmt_ {
     A_pos pos;
-    aA_boolExpr boolExpr;
+    aA_boolUnit boolUnit;
     vector<aA_codeBlockStmt> ifStmts, elseStmts;
 };
 
 struct aA_whileStmt_ {
     A_pos pos;
-    aA_boolExpr boolExpr;
+    aA_boolUnit boolUnit;
     vector<aA_codeBlockStmt> whileStmts;
 };
 

@@ -38,21 +38,22 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolBiOpExpr 
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit x>
-										|--A_exprUnit 
-											|--A_arrayExpr 
-											|--A_leftVal a[
-												|--A_indexExpr p])&&
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit p<
-										|--A_exprUnit N)){
+					|--A_boolUnit (
+						|--A_boolExpr 
+							|--A_boolBiOpExpr 
+								|--A_boolExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit x>
+											|--A_exprUnit 
+												|--A_arrayExpr 
+												|--A_leftVal a[
+													|--A_indexExpr p])&&
+								|--A_boolExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit p<
+											|--A_exprUnit N))){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -75,11 +76,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i>
-								|--A_exprUnit p)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i>
+							|--A_exprUnit p)){
 
 					|--A_codeBlockStmt 
 						|--A_varDeclStmt let 
@@ -298,11 +298,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit N)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit N)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 

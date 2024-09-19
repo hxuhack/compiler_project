@@ -28,7 +28,7 @@ fn Dijkstra()
         let min_index:int = 0;
         let k:int = 1;
         while (k <= n) {
-            if (min_num > dis[k] && book[k] == 0) {
+            if ((min_num > dis[k]) && (book[k] == 0)) {
                 min_num = dis[k];
                 min_index = k;
             }

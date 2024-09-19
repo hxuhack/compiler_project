@@ -52,7 +52,7 @@ fn interpret(input[65536]:int) {
       // ','
       tape[ptr] = getch();
     }
-    if (cur_char == 93 && tape[ptr]!=0) {
+    if ((cur_char == 93) && (tape[ptr]!=0)) {
       // ']'
       loop = 1;
       while (loop > 0) {

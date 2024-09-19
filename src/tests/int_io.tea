@@ -6,7 +6,7 @@ fn my_getint()->int
     let c:int;
     while (1>0) {
         c = getch() - ascii_0;
-        if (c < 0 || c > 9) {
+        if ((c < 0) || (c > 9)) {
             continue;
         } else {
             break;
@@ -16,7 +16,7 @@ fn my_getint()->int
 
     while (1>0) {
         c = getch() - ascii_0;
-        if (c >= 0 && c <= 9) {
+        if ((c >= 0) && (c <= 9)) {
             sum = sum * 10 + c;
         } else {
             break;

@@ -68,11 +68,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit j<
-								|--A_exprUnit 4)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit j<
+							|--A_exprUnit 4)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -116,30 +115,31 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_ifStmt if(
-					|--A_boolExpr 
-						|--A_boolBiOpExpr 
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit 
-											|--A_arrayExpr 
-											|--A_leftVal a[
-												|--A_indexExpr 0]==
-										|--A_exprUnit 
-											|--A_arrayExpr 
-											|--A_leftVal a[
-												|--A_indexExpr 3])&&
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_comExpr 
-										|--A_exprUnit 
-											|--A_arrayExpr 
-											|--A_leftVal a[
-												|--A_indexExpr 1]==
-										|--A_exprUnit 
-											|--A_arrayExpr 
-											|--A_leftVal a[
-												|--A_indexExpr 2])){
+					|--A_boolUnit (
+						|--A_boolExpr 
+							|--A_boolBiOpExpr 
+								|--A_boolExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit 
+												|--A_arrayExpr 
+												|--A_leftVal a[
+													|--A_indexExpr 0]==
+											|--A_exprUnit 
+												|--A_arrayExpr 
+												|--A_leftVal a[
+													|--A_indexExpr 3])&&
+								|--A_boolExpr 
+									|--A_boolUnit (
+										|--A_comExpr 
+											|--A_exprUnit 
+												|--A_arrayExpr 
+												|--A_leftVal a[
+													|--A_indexExpr 1]==
+											|--A_exprUnit 
+												|--A_arrayExpr 
+												|--A_leftVal a[
+													|--A_indexExpr 2]))){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -202,11 +202,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_ifStmt if(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit flag==
-								|--A_exprUnit 1)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit flag==
+							|--A_exprUnit 1)){
 
 					|--A_codeBlockStmt 
 						|--A_callStmt 

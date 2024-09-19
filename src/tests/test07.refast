@@ -27,30 +27,15 @@ A_program
 						|--A_varDefScalar a:
 						|--A_type int = 
 						|--A_rightVal 
-							|--A_boolExpr 
-								|--A_boolBiOpExpr 
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit 1<
-														|--A_exprUnit 9))&&
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_boolExpr 
-												|--A_boolUnit (
-													|--A_comExpr 
-														|--A_exprUnit i>
-														|--A_exprUnit 0));
+							|--A_arithExpr 
+								|--A_exprUnit -1;
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit 1000000)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit 1000000)){
 
 					|--A_codeBlockStmt 
 						|--A_varDeclStmt let 

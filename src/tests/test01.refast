@@ -36,34 +36,8 @@ A_program
 				|--A_varDefScalar c:
 				|--A_type int = 
 				|--A_rightVal 
-					|--A_boolExpr 
-						|--A_boolBiOpExpr 
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit 1<
-												|--A_exprUnit 2))&&
-							|--A_boolExpr 
-								|--A_boolUnit (
-									|--A_boolExpr 
-										|--A_boolUnit (
-											|--A_comExpr 
-												|--A_exprUnit (
-													|--A_arithExpr 
-														|--A_arithBiOpExpr 
-															|--A_arithExpr 
-																|--A_exprUnit 5*
-															|--A_arithExpr 
-																|--A_exprUnit 3)<
-												|--A_exprUnit (
-													|--A_arithExpr 
-														|--A_arithBiOpExpr 
-															|--A_arithExpr 
-																|--A_exprUnit 4*
-															|--A_arithExpr 
-																|--A_exprUnit 4)));
+					|--A_arithExpr 
+						|--A_exprUnit 1;
 
 	|--A_programElement 
 		|--A_fnDef 
@@ -98,11 +72,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit 10)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit 10)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
@@ -135,11 +108,10 @@ A_program
 
 			|--A_codeBlockStmt 
 				|--A_whileStmt while(
-					|--A_boolExpr 
-						|--A_boolUnit (
-							|--A_comExpr 
-								|--A_exprUnit i<
-								|--A_exprUnit 10)){
+					|--A_boolUnit (
+						|--A_comExpr 
+							|--A_exprUnit i<
+							|--A_exprUnit 10)){
 
 					|--A_codeBlockStmt 
 						|--A_assignStmt 
