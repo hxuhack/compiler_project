@@ -6,7 +6,7 @@ Assignment2 的目标是对 Assignment 1 给出的 AST 进行类型检查和推�
 
 ## 实验环境
 
-本次实验的环境和实验一相同。__你需要首先将你在实验二中实现的 `parser.yacc`、`lexer.lex` 文件 copy 到本目录__ ，然后在本目录下运行
+本次实验的环境和实验一相同。__你需要首先将你在实验一中实现的 `parser.yacc`、`lexer.lex` 文件 copy 到本目录__ ，然后在本目录下运行
 
 ```
 make
