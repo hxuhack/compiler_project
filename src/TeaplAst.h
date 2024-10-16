@@ -557,4 +557,3 @@ A_programElement A_ProgramFnDeclStmt(A_pos pos, A_fnDeclStmt fnDecl);
 A_programElement A_ProgramFnDef(A_pos pos, A_fnDef fnDef);
 A_programElementList A_ProgramElementList(A_programElement head, A_programElementList tail);
 A_program A_Program(A_programElementList programElements);
-

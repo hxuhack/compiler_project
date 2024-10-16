@@ -1,0 +1,24 @@
+struct MyStruct { 
+    node:int,
+    len:int  
+}
+
+fn main(a:int, b:int)->int{
+    let c:MyStruct;
+    c.node = 1;
+    c.len = 3;
+    c.tail = 7;
+    ret a - b;
+}
+
+;
+
+fn foo(a:int, b:int)->int{
+    ret a+1+b+2;
+}
+
+
+/*
+    key:
+    line 10, col 5: member 'tail' is not defined.
+*/

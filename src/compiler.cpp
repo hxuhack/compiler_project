@@ -1,10 +1,11 @@
 #include <fstream>
+#include <iostream>
 #include "TeaplAst.h"
 #include "TeaplaAst.h"
 #include "PrintTeaplaAst.h"
+#include "TypeCheck.h"
 #include "y.tab.hpp"
 
-// set YACCDEBUG 1 to turn on yydebug
 #define YACCDEBUG 0
 
 using namespace std;
@@ -32,9 +33,13 @@ int main(int argc, char * argv[]) {
     ASTStream.open(argv[2]);
 
     yyparse();
+    
     aroot = aA_Program(root);
     print_aA_Program(aroot, ASTStream);
-
     ASTStream.close();
+
+    check_Prog(std::cout, aroot);
+
     return 0;
 }
+

@@ -1,0 +1,26 @@
+fn foo(a:int)->int{
+    ret a - 1;
+}
+
+fn main()->int{
+    let a:int = foo(3);
+    
+    ret a;
+}
+
+struct MyStruct { 
+    node:int,
+    len:int  
+}
+
+fn foo(b:int)->MyStruct{
+    let r:MyStruct;
+    r.node = b;
+    ret r;
+}
+
+
+/*
+    Typecheck error in line 16, col 1: The function return type doesn't match the declaration!
+*/
+

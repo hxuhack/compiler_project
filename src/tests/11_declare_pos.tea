@@ -1,0 +1,26 @@
+fn foo(a:int, b:int)->int{
+    if(a > b){
+        ret b - 1;
+    }else{
+        ret b + 1;
+    }
+}
+
+fn main(a2:int, b3:int)->int{
+    while(b > 0){
+        c = foo(b, a2);
+        c = b - b3;
+    }
+    
+    ret foo(a2, b3);
+}
+
+let b:int;
+let c:int;
+
+
+/*
+    key:
+    type check passed.
+*/
+
