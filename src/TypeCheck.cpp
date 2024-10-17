@@ -288,7 +288,6 @@ void check_AssignStmt(std::ostream& out, aA_assignStmt as){
         }
             break;
         case A_leftValType::A_arrValKind:{
-            name = *as->leftVal->u.arrExpr->arr->u.id;
             /* fill code here */
         }
             break;
