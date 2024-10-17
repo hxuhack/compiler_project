@@ -1,0 +1,26 @@
+fn foooo(a:int)->int{
+    ret a - 1;
+}
+
+fn main()->int{
+    let a:int = foo(3);
+    
+    ret a;
+}
+
+struct MyStruct { 
+    node:int,
+    len:int  
+}
+
+fn fooo(b:int)->MyStruct{
+    let r:MyStruct;
+    r.node = b;
+    ret r;
+}
+
+
+/*
+    Typecheck error in line 6, col 17: Function not defined!
+*/
+
