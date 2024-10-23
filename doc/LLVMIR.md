@@ -388,6 +388,22 @@ Examples:
 %Y = bitcast i32* %x to i16*      ; yields i16*:%x
 ```
 
+### zext..to
+
+Syntax:
+
+```
+<result> = zext <ty> <value> to <ty2>             ;  converts value to type ty2 with zero extending.
+```
+
+### trunc..to
+
+Syntax:
+
+```
+<result> = trunc <ty> <value> to <ty2>             ;  converts value to type ty2 with truncating.
+```
+
 ### Other Operations
 
 #### icmp

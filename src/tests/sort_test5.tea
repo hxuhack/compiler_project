@@ -1,3 +1,11 @@
+fn getch()->int;
+fn getint()->int;
+fn putint(a:int);
+fn putch(a:int);
+fn putarray(n:int,a[10]:int);
+fn _sysy_starttime(a:int);
+fn _sysy_stoptime(a:int);
+
 let n:int;
 fn swap (array[10]:int, i:int, j:int)->int{
     let temp:int;
@@ -13,7 +21,7 @@ fn heap_ajust(arr[10]:int, start:int, end:int)->int {
     son = dad * 2 + 1;  
     while (son < (end + 1)) { //   
         let temp:int = son + 1;
-        if (son < end && arr[son] < arr[temp])
+        if ((son < end) && (arr[son] < arr[temp]))
             {son = son + 1;  }
         if (arr[dad] > arr[son])
             {ret 0;}  
@@ -29,7 +37,7 @@ fn heap_sort(arr[10]:int, len:int)->int {
     let i:int;  
     let tmp:int;
     i = len / 2 - 1;
-    while ( i > -1) {
+    while ( i > (0-1)) {
         tmp = len - 1;
         tmp = heap_ajust(arr, i, tmp);  
         i = i - 1;

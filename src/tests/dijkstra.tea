@@ -1,3 +1,11 @@
+fn getch()->int;
+fn getint()->int;
+fn putint(a:int);
+fn putch(a:int);
+fn putarray(n:int,a[10]:int);
+fn _sysy_starttime(a:int);
+fn _sysy_stoptime(a:int);
+
 let INF:int = 65535;
 struct array2D {
     a[16]:int
@@ -28,7 +36,7 @@ fn Dijkstra()
         let min_index:int = 0;
         let k:int = 1;
         while (k <= n) {
-            if (min_num > dis[k] && book[k] == 0) {
+            if ((min_num > dis[k]) && (book[k] == 0)) {
                 min_num = dis[k];
                 min_index = k;
             }

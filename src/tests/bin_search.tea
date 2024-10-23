@@ -1,3 +1,11 @@
+fn getch()->int;
+fn getint()->int;
+fn putint(a:int);
+fn putch(a:int);
+fn putarray(n:int,a[10]:int);
+fn _sysy_starttime(a:int);
+fn _sysy_stoptime(a:int);
+
 fn main()->int
 {
     let i:int;
@@ -20,7 +28,7 @@ fn main()->int
     high=n-1;
     low=0;
     mid=(high+low)/2;
-    while(a[mid]!=x && low < high)
+    while((a[mid]!=x) && (low < high))
     {
         mid=(high+low)/2;
         if(x<a[mid])

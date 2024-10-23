@@ -1,13 +1,12 @@
 declare i32 @getch( )
 declare i32 @getint( )
-declare void @putch( i32 )
 declare void @putint( i32 )
+declare void @putch( i32 )
 declare void @putarray( i32, i32* )
 declare void @_sysy_starttime( i32 )
 declare void @_sysy_stoptime( i32 )
 @a = global [ 10 x i32 ] zeroinitializer
 @b = global i32 27
-@c = global i32 1
 define i32 @main( ) {
 bb1:
   call void @_sysy_starttime(i32 4)
@@ -56,10 +55,8 @@ bb6:
 bb7:
   %r118 = load i32, i32* @b
   call void @putint(i32 %r118)
-  %r119 = load i32, i32* @c
+  %r119 = load i32, i32* %r101
   call void @putint(i32 %r119)
-  %r120 = load i32, i32* %r101
-  call void @putint(i32 %r120)
   call void @_sysy_stoptime(i32 19)
   ret i32 0
 }
