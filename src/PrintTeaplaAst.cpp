@@ -469,7 +469,7 @@ void print_aA_IfStmt(aA_ifStmt ifStmt, ostream& os){
     tab++;
     print_tab(os, "A_ifStmt");
     os << "if(";
-    print_aA_BoolExpr(ifStmt->boolExpr, os);
+    print_aA_BoolUnit(ifStmt->boolUnit, os);
     os << "){";
     for(auto &stmt : ifStmt->ifStmts){
         os << "\n";
@@ -492,7 +492,7 @@ void print_aA_WhileStmt(aA_whileStmt whileStmt, ostream& os){
     tab++;
     print_tab(os, "A_whileStmt");
     os << "while(";
-    print_aA_BoolExpr(whileStmt->boolExpr, os);
+    print_aA_BoolUnit(whileStmt->boolUnit, os);
     os << "){";
     for(auto &stmt : whileStmt->whileStmts){
         os << "\n";
